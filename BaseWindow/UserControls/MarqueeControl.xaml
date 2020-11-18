@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="BaseWindow.UserControls.MarqueeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BaseWindow.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Canvas ClipToBounds="True" x:Name="canvas">
+        <Canvas.Resources>
+            <Storyboard x:Key="stdUp">
+                <DoubleAnimation Duration="0:0:1.5" Storyboard.TargetName="content" Storyboard.TargetProperty="RenderTransform.Y"/>
+            </Storyboard>
+            <Storyboard x:Key="stdLeft">
+                <DoubleAnimation Duration="0:0:1.5" Storyboard.TargetName="content" Storyboard.TargetProperty="RenderTransform.X"/>
+            </Storyboard>
+        </Canvas.Resources>
+        <StackPanel x:Name="content">
+            <StackPanel.RenderTransform>
+                <TranslateTransform/>
+            </StackPanel.RenderTransform>
+            <TextBlock x:Name="txtItem" Foreground="Black"/>
+        </StackPanel>
+    </Canvas>
+</UserControl>

@@ -1,0 +1,68 @@
+﻿<Window x:Class="BaseWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BaseWindow"
+        xmlns:UC="clr-namespace:HB_UserControls.UC;assembly=HB_UserControls"
+        xmlns:WUC="clr-namespace:BaseWindow.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="1024" Height="768"  WindowStyle="None" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="btn_submit" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image Name="BtnBg" Source="UI_Images/btn_submit_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="UI_Images/btn_submit_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Source" Value="UI_Images/btn_submit_3.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TxtPwd" TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Foreground" Value="Transparent"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Courier New"></Setter>
+            <Setter Property="TextDecorations">
+                <Setter.Value>
+                    <TextDecorationCollection>
+                        <TextDecoration>
+                            <TextDecoration.Pen>
+                                <Pen Thickness="10" Brush="Black" EndLineCap="Round" StartLineCap="Round" DashCap="Round">
+                                    <Pen.DashStyle>
+                                        <DashStyle Dashes="0.0,1.2" Offset="0.6"/>
+                                    </Pen.DashStyle>
+                                </Pen>
+                            </TextDecoration.Pen>
+                            <TextDecoration.Location>
+                                <TextDecorationLocation>Strikethrough</TextDecorationLocation>
+                            </TextDecoration.Location>
+                        </TextDecoration>
+                    </TextDecorationCollection>
+                </Setter.Value>
+            </Setter>
+            
+        </Style>
+    </Window.Resources>
+    <Canvas x:Name="MainCanvas">
+        <Image x:Name="img_Tilte" Canvas.Left="40" Canvas.Top="11"></Image>
+        <Label x:Name="lbl_Title" FontFamily="黑体" FontSize="30" FontWeight="Black" Foreground="#d1ecfd" Canvas.Left="83" Canvas.Top="10" Width="621"></Label>
+        <Label x:Name="lbl_version" Content="" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Canvas.Bottom="0" Height="34" Width="1024"/>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" SnapsToDevicePixels="True" Navigated="mainFrame_Navigated"></Frame>
+        <UC:UC_Keyboard_Admin x:Name="uc_keyboard" Canvas.Left="0" Canvas.Top="0"></UC:UC_Keyboard_Admin>
+
+        <WUC:MarqueeControl x:Name="scrollingTextControl" Canvas.Left="0" Canvas.Bottom="0" Height="34" Width="300" FontSize="15"  ShowType="Right" Speed="0.02" Canvas.Top="724"></WUC:MarqueeControl>
+    </Canvas>
+</Window>
