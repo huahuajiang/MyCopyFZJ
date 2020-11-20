@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\VSWork\MyCopyFZJ\BaseWindow\App.xaml
-3-461004777
+4-416203079
 
-6-586050605
+71516852704
 20106084735
-MainWindow.xaml;ResourceDictionaries\Button_Style.xaml;UserControls\MarqueeControl.xaml;
+MainWindow.xaml;ResourceDictionaries\Button_Style.xaml;UserControls\MarqueeControl.xaml;UserControls\UC_CertificateKeyBoard.xaml;
 
-False
+True
 

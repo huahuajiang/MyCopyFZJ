@@ -7,7 +7,7 @@
         xmlns:UC="clr-namespace:HB_UserControls.UC;assembly=HB_UserControls"
         xmlns:WUC="clr-namespace:BaseWindow.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Width="1024" Height="768"  WindowStyle="None" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize">
+        Title="MainWindow" Width="1024" Height="768"  WindowStyle="None" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize" Loaded="Window_Loaded" Deactivated="Window_Deactivated">
     <Window.Resources>
         <Style x:Key="btn_submit" TargetType="{x:Type Button}">
             <Setter Property="Cursor" Value="Hand"></Setter>
@@ -64,5 +64,23 @@
         <UC:UC_Keyboard_Admin x:Name="uc_keyboard" Canvas.Left="0" Canvas.Top="0"></UC:UC_Keyboard_Admin>
 
         <WUC:MarqueeControl x:Name="scrollingTextControl" Canvas.Left="0" Canvas.Bottom="0" Height="34" Width="300" FontSize="15"  ShowType="Right" Speed="0.02" Canvas.Top="724"></WUC:MarqueeControl>
+        <Canvas x:Name="CanSreenPrt">
+            <Canvas x:Name="can_bg">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="UI_Images/bg_pb.png"></ImageBrush>
+                </Canvas.Background>
+            </Canvas>
+
+            <Canvas x:Name="can_pwd" Width="480" GotFocus="txtB_pwd_GotFocus">
+                <Image Canvas.Top="0" Canvas.Left="0">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="UI_Images/word_pb.png"/>
+                    </Image.OpacityMask>
+                </Image>
+                <Label x:Name="label" Content="请输入管理员密码，退出屏保" Canvas.Top="0" Foreground="#585858" FontSize="35" Canvas.Left="0"></Label>
+                <TextBox x:Name="txtB_pwd" Style="{StaticResource TxtPwd}" Height="72" Canvas.Left="0" Canvas.Top="56" Width="352" FontSize="35" VerticalContentAlignment="Center"/>
+                <Button x:Name="btn_submit" Style="{StaticResource btn_submit}" Canvas.Left="353" Canvas.Top="56" Click="btn_submit_Click"></Button>
+            </Canvas>
+        </Canvas>
     </Canvas>
 </Window>

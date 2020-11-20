@@ -76,8 +76,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\ComFun.cs" />
+    <Compile Include="Common\FlashLogger.cs" />
+    <Compile Include="Common\FlashLogLevel.cs" />
+    <Compile Include="Common\FlashLogMessage.cs" />
     <Compile Include="UserControls\MarqueeControl.xaml.cs">
       <DependentUpon>MarqueeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_CertificateKeyBoard.xaml.cs">
+      <DependentUpon>UC_CertificateKeyBoard.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MarqueeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_CertificateKeyBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,9 +139,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI_Images\UC_CertificateKeyBoard\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="UI_Images\Background.jpg" />
     <Resource Include="UI_Images\bg_pb.png" />
@@ -146,6 +155,83 @@
     <Resource Include="UI_Images\Word_Confirm2.png" />
     <Resource Include="UI_Images\Word_Confirm3.png" />
     <Resource Include="UI_Images\word_pb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\background.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_0_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_0_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_1_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_1_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_2_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_2_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_3_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_3_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_4_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_4_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_5_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_5_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_6_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_6_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_7_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_7_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_8_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_8_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_9_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_9_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_a_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_a_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_b_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_b_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_c_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_c_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_delete_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_delete_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_d_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_d_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_e_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_e_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_f_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_f_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_g_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_g_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_h_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_h_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_i_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_i_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_j_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_j_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_k_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_k_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_l_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_l_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_m_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_m_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_n_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_n_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_o_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_o_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_p_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_p_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_q_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_q_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_r_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_r_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_s_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_s_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_t_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_t_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_u_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_u_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_v_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_v_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_w_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_w_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_x_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_x_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_y_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_y_2.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_z_1.png" />
+    <Resource Include="UI_Images\UC_CertificateKeyBoard\btn_z_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

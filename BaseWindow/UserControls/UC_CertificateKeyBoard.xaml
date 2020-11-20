@@ -1,0 +1,790 @@
+﻿<UserControl x:Class="BaseWindow.UserControls.UC_CertificateKeyBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BaseWindow.UserControls" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="uc_certificatekeyboard_btn_a" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"></Setter>
+            <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
+            <Setter Property="OverridesDefaultStyle" Value="True"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_a_1.png"></Image>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_a_2.png" TargetName="BtnBg"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_b" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_b_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_b_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_c" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_c_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_c_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_d" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_d_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_d_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_e" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_e_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_e_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_f" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_f_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_f_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_g" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_g_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_g_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_h" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_h_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_h_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_i" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_i_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_i_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_j" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_j_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_j_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_k" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_k_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_k_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_l" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_l_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_l_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_m" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_m_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_m_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_n" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_n_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_n_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_o" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_o_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_o_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_p" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_p_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_p_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_q" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_q_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_q_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_r" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_r_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_r_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_s" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_s_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_s_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_t" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_t_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_t_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_u" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_u_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_u_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_v" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_v_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_v_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_w" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_w_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_w_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_x" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_x_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_x_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_y" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_y_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_y_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_z" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_z_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_z_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_1" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_1_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_1_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_2" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_2_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_2_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_3" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_3_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_3_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_4" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_4_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_4_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_5" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_5_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_5_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_6" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_6_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_6_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_7" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_7_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_7_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_8" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_8_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_8_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_9" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_9_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_9_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_0" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_0_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_0_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="uc_certificatekeyboard_btn_delete" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" >
+                            <Image x:Name="BtnBg" Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_delete_1.png" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Source" Value="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/btn_delete_2.png" TargetName="BtnBg"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Canvas Focusable="False">
+        <Image Source="/BaseWindow;component/UI_Images/UC_CertificateKeyBoard/background.png" Focusable="False"/>
+        <Canvas Name="key_board" Focusable="False">
+            <Button x:Name="btn_1" Content="1" Focusable="False" Canvas.Left="31" Canvas.Top="41" Style="{StaticResource uc_certificatekeyboard_btn_1}" Click="btn_Click" />
+            <Button x:Name="btn_2" Content="2" Focusable="False" Canvas.Left="87" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_2}"/>
+            <Button x:Name="btn_3" Content="3" Focusable="False" Canvas.Left="143" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_3}"/>
+            <Button x:Name="btn_4" Content="4" Focusable="False" Canvas.Left="199" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_4}"/>
+            <Button x:Name="btn_5" Content="5" Focusable="False" Canvas.Left="255" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_5}"/>
+            <Button x:Name="btn_6" Content="6" Focusable="False" Canvas.Left="311" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_6}"/>
+            <Button x:Name="btn_7" Content="7" Focusable="False" Canvas.Left="367" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_7}"/>
+            <Button x:Name="btn_8" Content="8" Focusable="False" Canvas.Left="423" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_8}"/>
+            <Button x:Name="btn_9" Content="9" Focusable="False" Canvas.Left="479" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_9}"/>
+            <Button x:Name="btn_0" Content="0" Focusable="False" Canvas.Left="535" Canvas.Top="41" Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_0}"/>
+            <Button x:Name="btn_q" Content="Q" Focusable="False" Canvas.Left="31" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_q}"/>
+            <Button x:Name="btn_w" Content="W" Focusable="False" Canvas.Left="87" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_w}"/>
+            <Button x:Name="btn_v" Content="V" Focusable="False" Canvas.Left="226" Canvas.Top="239"  Click="btn_Click"  Style="{StaticResource uc_certificatekeyboard_btn_v}"/>
+            <Button x:Name="btn_b" Content="B" Focusable="False" Canvas.Left="282" Canvas.Top="239"  Click="btn_Click"  Style="{StaticResource uc_certificatekeyboard_btn_b}"/>
+            <Button x:Name="btn_n" Content="N" Focusable="False" Canvas.Left="338" Canvas.Top="239"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_n}"/>
+            <Button x:Name="btn_c" Content="C" Focusable="False" Canvas.Left="170" Canvas.Top="239"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_c}"/>
+            <Button x:Name="btn_x" Content="X" Focusable="False" Canvas.Left="114" Canvas.Top="239"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_x}"/>
+            <Button x:Name="btn_z" Content="Z" Focusable="False" Canvas.Left="58" Canvas.Top="239"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_z}"/>
+            <Button x:Name="btn_l" Content="L" Focusable="False" Canvas.Left="506" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_l}"/>
+            <Button x:Name="btn_p" Content="P" Focusable="False" Canvas.Left="535" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_p}"/>
+            <Button x:Name="btn_k" Content="K" Focusable="False" Canvas.Left="450" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_k}"/>
+            <Button x:Name="btn_j" Content="J" Focusable="False" Canvas.Left="394" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_j}"/>
+            <Button x:Name="btn_h" Content="H" Focusable="False" Canvas.Left="338" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_h}"/>
+            <Button x:Name="btn_g" Content="G" Focusable="False" Canvas.Left="282" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_g}"/>
+            <Button x:Name="btn_f" Content="F" Focusable="False" Canvas.Left="226" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_f}"/>
+            <Button x:Name="btn_d" Content="D" Focusable="False" Canvas.Left="170" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_d}"/>
+            <Button x:Name="btn_s" Content="S" Focusable="False" Canvas.Left="114" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_s}"/>
+            <Button x:Name="btn_a" Content="A" Focusable="False" Canvas.Left="58" Canvas.Top="173"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_a}"/>
+            <Button x:Name="btn_o" Content="O" Focusable="False" Canvas.Left="479" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_o}"/>
+            <Button x:Name="btn_i" Content="I" Focusable="False" Canvas.Left="423" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_i}"/>
+            <Button x:Name="btn_u" Content="U" Focusable="False" Canvas.Left="367" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_u}"/>
+            <Button x:Name="btn_y" Content="Y" Focusable="False" Canvas.Left="311" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_y}"/>
+            <Button x:Name="btn_t" Content="T" Focusable="False" Canvas.Left="255" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_t}"/>
+            <Button x:Name="btn_r" Content="R" Focusable="False" Canvas.Left="199" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_r}"/>
+            <Button x:Name="btn_e" Content="E" Focusable="False" Canvas.Left="143" Canvas.Top="107"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_e}"/>
+            <Button x:Name="btn_m" Content="M" Focusable="False" Canvas.Left="394" Canvas.Top="239"  Click="btn_Click" Style="{StaticResource uc_certificatekeyboard_btn_m}"/>
+            <Button x:Name="btn_delete" Content="删除" Focusable="False" Canvas.Left="450" Canvas.Top="239" Style="{StaticResource uc_certificatekeyboard_btn_delete}" Click="btn_delete_Click"/>
+        </Canvas>
+    </Canvas>
+</UserControl>
