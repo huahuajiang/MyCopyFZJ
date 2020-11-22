@@ -49,11 +49,11 @@ namespace BaseWindow
         private int maxWorkingSet = 209715200;
         private UIFlowConfig UiConfig;
         private UIFlowConfig AdminUiConfig;
-        private UIFlowConfig NowUiConfig;
+        private UIFlowConfig NomUiConfig;
         private string Adm = "";
         private int click_sum = 0;
-        public string UI_CFG = "";
-        public string ADMIN_UI_CFG = "";
+        public string UI_CFG = "";//用户流程
+        public string ADMIN_UI_CFG = "";//管理员流程
         private string VERSION = "";
         private int SystemMode = 0;
 
@@ -84,12 +84,87 @@ namespace BaseWindow
         public MainWindow()
         {
             InitializeComponent();
+            InitUiConfig();
+            
+        }
 
+        private void InitUiConfig()
+        {
+            try
+            {
+                configFile = new UnCaseSenseHashTable();
+                string SysConfig=AppDomain.CurrentDomain.BaseDirectory+ "SystemConfig\\main_cfg.json";
+                configFile.LoadFromJsonFile(SysConfig);
+
+                if (configFile.HasValue("UI_CFG"))
+                {
+                    UI_CFG = AppDomain.CurrentDomain.BaseDirectory + configFile["UI_CFG"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("加载UI配置失败", "错误");
+                    this.Close();
+                    return;
+                }
+
+                if (configFile.HasValue("ADMIN_UI_CFG"))
+                {
+                    ADMIN_UI_CFG = AppDomain.CurrentDomain.BaseDirectory + configFile["ADMIN_UI_CFG"].ToString();
+                    AdminUiConfig = UIFlowConfig.LoadFromJSONFile(ADMIN_UI_CFG);
+                }
+
+                NomUiConfig = UIFlowConfig.LoadFromJSONFile(UI_CFG);
+
+                UnCaseSenseHashTable UIGolbal = new UnCaseSenseHashTable();
+                UIGolbal.LoadFromJsonFile(AppDomain.CurrentDomain.BaseDirectory + "SystemConfig\\app_config_vars.json");
+                for(int i = 0; i < UIGolbal.Count; i++)
+                {
+                    string[] key = new string[UIGolbal.Count];
+                    UIGolbal.Keys.CopyTo(key, 0);
+                    NomUiConfig.GetGlobalVar().Add(key[i], UIGolbal[key[i]]);
+                    if (AdminUiConfig != null)
+                    {
+                        AdminUiConfig.GetGlobalVar().Add(key[i], UIGolbal[key[i]]);
+                    }
+                }
+                
+                UiConfig = NomUiConfig;
+            }catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        public void EventsRegistion()
+        {
+            this.GCTimer.Tick += new EventHandler(OnGarbageCollection);
+        }
+
+        public void EventDeregistration()
+        {
+            this.GCTimer.Tick -= new EventHandler(OnGarbageCollection);
+        }
+
+        private void OnGarbageCollection(object sender, EventArgs e)
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
         private void mainFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            
+            try
+            {
+                if (this.mainFrame.CanGoBack)
+                {
+                    this.mainFrame.RemoveBackEntry();
+                    this.mainFrame.NavigationService.RemoveBackEntry();
+                }
+            }catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
         }
 
         private void txtB_pwd_GotFocus(object sender, RoutedEventArgs e)
@@ -114,7 +189,64 @@ namespace BaseWindow
             Canvas.SetLeft(can_pwd, CanSreenPrt.Width / 2 - can_pwd.Width / 2);
             Canvas.SetTop(can_pwd, CanSreenPrt.Height * 5 / 7);
 
-            
+            FileInfo fi = new FileInfo(System.Windows.Forms.Application.ExecutablePath);
+            if(File.Exists(fi.Directory.Parent.FullName+ "\\is_autoupdate_server.txt"))
+            {
+                MessageBox.Show("又不听话了，不要在服务器上运行程序!");
+                Environment.Exit(0);
+            }
+
+            try
+            {
+                FlashLogger.Instance().Register();
+
+                this.GCTimer.Interval = TimeSpan.FromSeconds(5);
+                this.GCTimer.Start();
+
+                this.EventsRegistion();
+
+                uc_Certificatekeyboard.Visibility = Visibility.Hidden;
+                uc_keyboard.SwitchEvent = new HB_UserControls.UC.UC_Keyboard_Admin.SwitchEventHandle(Logout);
+                uc_keyboard.ComFirmEvent += new HB_UserControls.UC.UC_Keyboard_Admin.ComFirmEventHandle(btn_comfirm);
+                uc_keyboard.Set_Parent_Data(this.Width, this.Height);
+
+                InitWindow(0);
+                JumpPage("");
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+                MessageBox.Show("系统错误：" + ex.Message, "错误");
+            }
+
+        }
+
+        private void btn_comfirm(string data)
+        {
+            try
+            {
+                if (UiConfig.GetGlobalVar().HasKeyValue("EXIST_PWD"))
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void Logout()
+        {
+            try
+            {
+                InitWindow(0);
+                JumpPage("Home");
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
         }
 
         private void UI_MouseDown(object sender, MouseButtonEventArgs e)
