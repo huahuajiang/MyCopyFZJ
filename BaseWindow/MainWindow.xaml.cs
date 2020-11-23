@@ -229,7 +229,50 @@ namespace BaseWindow
             {
                 if (UiConfig.GetGlobalVar().HasKeyValue("EXIST_PWD"))
                 {
+                    FlashLogger.Debug("比对退出密码");
+                    if (data == Convert.ToString(UiConfig.GetGlobalVar()["EXIST_PWD"]))
+                    {
+                        FlashLogger.Debug("比对退出密码成功");
+                        if (beforeExistProgramHandler != null)
+                        {
+                            beforeExistProgramHandler();
+                        }
+                        Environment.Exit(123456);
+                    }
+                }
 
+                if (UiConfig.GetGlobalVar().HasKeyValue("DEBUG_PWD"))
+                {
+                    FlashLogger.Debug("比对调试密码");
+                    if (data == Convert.ToString(UiConfig.GetGlobalVar()["DEBUG_PWD"]))
+                    {
+                        FlashLogger.Debug("比对调试密码成功");
+                        if (UiConfig.GetGlobalVar().HasKeyValue("DEBUG"))
+                        {
+                            if (Convert.ToString(UiConfig.GetGlobalVar()["DEBUG"]) == "1")
+                            {
+                                UiConfig.GetGlobalVar()["DEBUG"] = "0";
+                                this.Topmost = true;
+                            }
+                            else
+                            {
+                                UiConfig.GetGlobalVar()["DEBUG"] = "1";
+                                this.Topmost = false;
+                            }
+                            JumpPage("Home");
+                        }
+                    }
+                }
+
+                if (UiConfig.GetGlobalVar().HasKeyValue("ADMIN_PWD"))
+                {
+                    FlashLogger.Debug("比对管理员密码");
+                    if (data == Convert.ToString(UiConfig.GetGlobalVar()["ADMIN_PWD"]))
+                    {
+                        FlashLogger.Debug("比对管理员密码");
+                        InitWindow(1);
+                        JumpPage("Home");
+                    }
                 }
             }
             catch(Exception ex)
@@ -248,6 +291,78 @@ namespace BaseWindow
             catch(Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void JumpPage(string Operation)
+        {
+            bool IsNoNeedJump = false;
+            try
+            {
+                SRT_COUNT = 0;
+                switch (Operation)
+                {
+                    case "Self":
+                        break;
+                    case "Next":
+                        UnCaseSenseHashTable ushtmp = UiConfig.GetCurrentProp();
+                        if (ushtmp.HasValue("__GO_BACK__"))
+                        {
+                            int step = ushtmp.GetIntValue("__GO_BACK__");
+                            for(int i = 0; i < step; i++)
+                            {
+                                UiConfig.GotoPreviousStep();
+                            }
+                        }
+                        else
+                        {
+                            UiConfig.GotoNextStep();
+                        }
+                        break;
+                    case "NextStep":
+                        UiConfig.GotoNextStep();
+                        break;
+                    case "Last":
+                        UnCaseSenseHashTable usht = UiConfig.GetCurrentProp();
+                        if (usht.HasValue("__PRE_STEP__"))
+                        {
+                            int step = usht.GetIntValue("__PRE_STEP__");
+                            for (int i = 0; i < step; i++)
+                                UiConfig.GotoPreviousStep();
+                        }
+                        else
+                        {
+                            UiConfig.GotoPreviousStep();
+                        }
+                        break;
+                    case "Home":
+                        UiConfig.GotoFirstStep();
+                        break;
+                    case "NoneJump":
+                        IsNoNeedJump = true;
+                        break;
+                    default:
+                        UiConfig.GotoFirstStep();
+                        break;
+                }
+                try
+                {
+                    if (IsNoNeedJump == true)
+                    {
+                        return;
+                    }
+
+                    
+                }catch(Exception e)
+                {
+                    FlashLogger.Error(ComFun.ErrorMessage(e));
+                    MessageBox.Show("JumpPage出错，请重新配置配置文件:" + e.Message);
+                    Environment.Exit(0);
+                }
+            }catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+                MessageBox.Show("系统页面跳转出错：" + ex.Message);
             }
         }
 
