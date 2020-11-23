@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -59,8 +61,8 @@ namespace BaseWindow
 
         UnCaseSenseHashTable configFile;
         private string OldPage;
-        private bool IsStartSreenPrt = true;
-        Thread SreenThread;
+        private bool IsStartSreenPrt = true;//屏保线程是否启动
+        Thread SreenThread;//屏保线程
         private int SRT_TIME = 600;//多长时间后启动屏保
         private int SRT_COUNT = 0;
         private bool IsCloseProtectScreen = false;//是否屏保已打开
@@ -244,6 +246,210 @@ namespace BaseWindow
                 JumpPage("Home");
             }
             catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void InitWindow(int type)
+        {
+            try
+            {
+                SwithUi(type);
+
+                To_Top_Left();
+
+                Is_Out_Log();
+
+                SetEdition(VERSION);
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void SetEdition(string version="")
+        {
+            if (!string.IsNullOrEmpty(version))
+            {
+                lbl_version.Width = this.ActualWidth;
+                lbl_version.Content = "版本编号:" + version + "   " + "机器编号:" + UiConfig.GetGlobalVar()["MACHINE_NO"].ToString();
+            }
+            else
+            {
+                lbl_version.Content = "版本编号:" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + "   "+ "机器编号："+ UiConfig.GetGlobalVar()["MACHINE_NO"].ToString();
+            }
+        }
+
+        private void Is_Out_Log()
+        {
+            if (UiConfig.GetGlobalVar().HasValue("IS_CREATE_LOG")){
+                UiConfig.IsOutLogger = true;
+            }else
+            {
+                UiConfig.IsOutLogger = false;
+            }
+        }
+
+        /// <summary>
+        /// 控制窗口显示位置
+        /// </summary>
+        private void To_Top_Left()
+        {
+            try
+            {
+                this.WindowStartupLocation = WindowStartupLocation.Manual;
+                this.Left = 0;
+                this.Top = 0;
+                if (UiConfig.GetGlobalVar().HasValue("DEBUG"))
+                {
+                    if (Convert.ToString(UiConfig.GetGlobalVar()["DEBUG"]) != "1")
+                    {
+                        this.Topmost = true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void SwithUi(int type=0)
+        {
+            try
+            {
+                uc_keyboard.Change_Btn_Type("Full_Keyboard");
+                switch (type)
+                {
+                    case 0:
+                        UiConfig = NomUiConfig;
+                        SystemMode = 0;
+                        StopSreenProtect();
+                        break;
+                    case 1:
+                        if (AdminUiConfig != null)
+                        {
+                            UiConfig = AdminUiConfig;
+                            SystemMode = 1;
+                            if(Convert.ToString(UiConfig.GetGlobalVar()["NEED_PROTECT_SCREEN"]) != "0"){
+                                StartSreenProtect();
+                            }
+                        }
+                        break;
+                    default:
+                        UiConfig = NomUiConfig;
+                        SystemMode = 0;
+                        StopSreenProtect();
+                        break;
+                }
+            }catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void StopSreenProtect()
+        {
+            try
+            {
+                if (SreenThread != null)
+                {
+                    if (SreenThread.IsAlive)
+                    {
+                        IsStartSreenPrt = false;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void StartSreenProtect()
+        {
+            try
+            {
+                if (SreenThread != null)
+                {
+                    if (SreenThread.IsAlive == true)
+                    {
+                        return;
+                    }
+                }
+                txtB_pwd.Text = "";
+                IsStartSreenPrt = true;
+                SreenThread = new Thread(SreenThreadHandler);
+                SreenThread.IsBackground = true;
+                SreenThread.Start();
+
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void SreenThreadHandler()
+        {
+            try
+            {
+                SRT_COUNT = 0;
+                while (true)
+                {
+                    if (IsStartSreenPrt == false)
+                    {
+                        return;
+                    }
+
+                    if (SRT_COUNT > SRT_TIME)
+                    {
+                        this.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            Point curPoint = new Point();
+                            curPoint.Y = 0;
+                            curPoint.X = 0;
+                            MoveTo(curPoint, CanSreenPrt, 1);
+                        }));
+                        IsCloseProtectScreen = true;
+                        return;
+                    }
+                    Thread.Sleep(1000);
+                    SRT_COUNT++;
+                }
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void MoveTo(Point deskPoint, Canvas ell, double space)
+        {
+            try
+            {
+                Point curPoint = new Point();
+                curPoint.X = Canvas.GetLeft(ell);
+                curPoint.Y = Canvas.GetTop(ell);
+                Storyboard storyboard = new Storyboard();
+                double lxspeed = space, lyspeed = space;
+                DoubleAnimation doubleAnimation = new DoubleAnimation(Canvas.GetLeft(ell), deskPoint.X, new Duration(TimeSpan.FromMilliseconds(lxspeed)));
+                Storyboard.SetTarget(doubleAnimation, ell);
+                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("(Canvas.Left)"));
+                storyboard.Children.Add(doubleAnimation);
+                doubleAnimation = new DoubleAnimation(
+                  Canvas.GetTop(ell),
+                  deskPoint.Y,
+                  new Duration(TimeSpan.FromMilliseconds(lyspeed))
+                );
+                //storyboard.Completed += Storyboard_Completed;
+                Storyboard.SetTarget(doubleAnimation, ell);
+                Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("(Canvas.Top)"));
+                storyboard.Children.Add(doubleAnimation);
+                storyboard.Begin();
+            }catch(Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
