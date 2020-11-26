@@ -775,9 +775,30 @@ namespace BaseWindow
             Canvas.SetLeft(this.scrollingTextControl, left);
         }
 
+        public void SetMarqueeTextColor(Brush forergroundBrush)
+        {
+            scrollingTextControl.setTextFontColor(forergroundBrush);
+        }
+
+        public void SetSreenProtectTime(int second = 600)
+        {
+            SRT_TIME = second;
+        }
+
         public void SetVersionControlColor(Brush brushes)
         {
             lbl_version.Foreground = brushes;
         }
+
+
+        /// <summary>
+        /// 获取版本号
+        /// </summary>
+        /// <param name="version"></param>
+        public void SetMainEdition(string version = "")
+        {
+            VERSION = version;
+        }
+
     }
 }
