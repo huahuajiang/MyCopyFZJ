@@ -1,0 +1,214 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="MsgBox_btn_close" TargetType="Button">
+		<Setter Property="Canvas.Left" Value="327"></Setter>
+		<Setter Property="Canvas.Top" Value="9"></Setter>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_cancel_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_cancel_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_cancel_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MsgBox_btn_yes" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+		<Setter Property="Canvas.Left" Value="28"></Setter>
+		<Setter Property="Canvas.Top" Value="14"></Setter>
+		<Setter Property="IsDefault" Value="True"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MsgBox_btn_no" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+		<Setter Property="Canvas.Left" Value="153"></Setter>
+		<Setter Property="Canvas.Top" Value="14"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_no_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_no_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_no_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MsgBox_btn_cancel" TargetType="Button">
+		<Setter Property="Canvas.Left" Value="153"></Setter>
+		<Setter Property="Canvas.Top" Value="14"></Setter>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_no_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_no_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_no_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MsgBox_btn_comfirm" TargetType="Button">
+		<Setter Property="Canvas.Left" Value="138"></Setter>
+		<Setter Property="Canvas.Top" Value="190"></Setter>
+		<Setter Property="IsDefault" Value="True"></Setter>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+		<Setter Property="Visibility" Value="Hidden"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	<Style x:Key="MsgBox_btn_comfirm2" TargetType="Button">
+		<Setter Property="Canvas.Left" Value="28"></Setter>
+		<Setter Property="Canvas.Top" Value="14"></Setter>
+		<Setter Property="IsDefault" Value="True"></Setter>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+		<Setter Property="Visibility" Value="Hidden"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_yes_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	<Style x:Key="MsgBox_tb_title" TargetType="{x:Type TextBlock}">
+		<Setter Property="Margin" Value="5"></Setter>
+		<Setter Property="FontSize" Value="15"></Setter>
+	</Style>
+    <Style x:Key="MsgBox_textboxStyle" TargetType="{x:Type TextBox}">
+		<Setter Property="Canvas.Left" Value="18"></Setter>
+		<Setter Property="Canvas.Top" Value="98"></Setter>
+		<Setter Property="TextWrapping" Value="Wrap"></Setter>
+		<Setter Property="Width" Value="339"></Setter>
+		<Setter Property="Height" Value="86"></Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"></Setter>
+        <Setter Property="Background" Value="{x:Null}"></Setter>
+        <Setter Property="IsReadOnly" Value="True"></Setter>
+        <Setter Property="Foreground" Value="Red"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderThickness" Value="0"></Setter>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderThickness" Value="0"></Setter>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="False">
+                <Setter Property="BorderThickness" Value="0"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+	<Style x:Key="MsgBoxStyle" TargetType="{x:Type Window}">
+		<Setter Property="Height" Value="255"></Setter>
+		<Setter Property="Width" Value="376"></Setter>
+		<Setter Property="ResizeMode" Value="NoResize"></Setter>
+		<Setter Property="WindowStyle" Value="None"></Setter>
+		<Setter Property="AllowsTransparency" Value="True"></Setter>
+		<Setter Property="Icon" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/Icon.png"></Setter>
+		<Setter Property="Background">
+			<Setter.Value>
+				<ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/bg_msg.png"></ImageBrush>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="MsgBox_img_msgb" TargetType="{x:Type Image}">
+		<Setter Property="Canvas.Left" Value="163"></Setter>
+		<Setter Property="Canvas.Top" Value="30"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/bg_warning.png"/>
+    </Style>
+	
+	<Style x:Key="MsgBox_cv_btnground1" TargetType="{x:Type Canvas}">
+		<Setter Property="Visibility" Value="Hidden"></Setter>
+		<Setter Property="Height" Value="70"></Setter>
+		<Setter Property="Width" Value="283"></Setter>
+		<Setter Property="Canvas.Left" Value="42"></Setter>
+		<Setter Property="Canvas.Top" Value="174"></Setter>
+    </Style>
+	<Style x:Key="MsgBox_cv_btnground2" TargetType="{x:Type Canvas}">
+		<Setter Property="Visibility" Value="Hidden"></Setter>
+		<Setter Property="Height" Value="70"></Setter>
+		<Setter Property="Width" Value="283"></Setter>
+		<Setter Property="Canvas.Left" Value="55"></Setter>
+		<Setter Property="Canvas.Top" Value="176"></Setter>
+    </Style>
+</ResourceDictionary>

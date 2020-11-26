@@ -1,0 +1,1217 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ZZFZJ.ResourceDictionaries">
+   
+    <Style x:Key="btn_wind_close" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_cancel_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_cancel_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Msgbox/btn_cancel_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_sumbit" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_qr_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_qr_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_qr_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+   
+
+    <Style x:Key="btnHadWriteClear" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_HandWrite/clear_a.png" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btnHadWriteDelete" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_HandWrite/delete_a.png" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_submit"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_qr_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_qr_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_qr_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_exit_sys"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_exit_sys_normal.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_exit_sys_press.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_exit_sys_disable.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_main"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_main_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_main_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_main_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_back"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_fh_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_fh_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_fh_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_save" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_bf_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_bf_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_bf_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_bf_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_recover" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_hf_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_hf_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_hf_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_hf_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_del_db" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_sc_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_sc_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_sc_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BackUpPage/btn_sc_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_restart"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_InitPage/btn_restart_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_InitPage/btn_restart_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_InitPage/btn_restart_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_add"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_tj_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_tj_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_tj_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_del"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_sc_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_sc_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_MemberAdminPage/btn_sc_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_retake"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ScenePortraitPage/btn_retake_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ScenePortraitPage/btn_retake_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ScenePortraitPage/btn_retake_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Btn_gnsx" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_gnsx_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_gnsx_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_gnsx_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_gnsx_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Btn_jgcsh" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgcsh_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgcsh_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgcsh_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgcsh_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Btn_jgwy" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgwy_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgwy_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgwy_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_jgwy_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Btn_tcxt" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_tcxt_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_tcxt_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_tcxt_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_tcxt_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Btn_txzrk" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_txzrk_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_txzrk_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_txzrk_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_AdminPage/btn_txzrk_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_add_ph"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_add_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_add_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_add_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_add_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_del_ph"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_del_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_del_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_del_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_del_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Btn_Store_ksrk"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_ksrk_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_ksrk_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_ksrk_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_ksrk_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Btn_Store_tzrk"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_tzrk_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_tzrk_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_tzrk_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_StorePage/btn_tzrk_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="Btn_tzck"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BatchOutCardPage/btn_tzck_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BatchOutCardPage/btn_tzck_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BatchOutCardPage/btn_tzck_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_BatchOutCardPage/btn_tzck_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_brlq"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brlq_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brlq_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brlq_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_sfz"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseCardTpyePage/btn_sfz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseCardTpyePage/btn_sfz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseCardTpyePage/btn_sfz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_jzz"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseCardTpyePage/btn_jzz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseCardTpyePage/btn_jzz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseCardTpyePage/btn_jzz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_zzlz"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseModelPage/btn_lz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseModelPage/btn_lz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseModelPage/btn_lz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="btn_zzcz"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseModelPage/btn_cz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseModelPage/btn_cz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseModelPage/btn_cz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_brsfz"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brsfz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brsfz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brsfz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_brywbh"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brywbh_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brywbh_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_brywbh_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_trdl"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_trdl_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_trdl_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/btn_trdl_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="btn_cancel"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_qx_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_qx_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/btn_qx_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="btn_ksqd"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_ksqd_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_ksqd_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_ksqd_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_jsqd"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_jsqd_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_jsqd_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_jsqd_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_qbsc"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_qbsc_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_qbsc_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_qbsc_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_scxz"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_scxz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_scxz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_scxz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_output_unvalid"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_ckbppk_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_ckbppk_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_ckbppk_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_stop_unvalid"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_stop_card_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_stop_card_2.png"  TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_CheckStoresPage/btn_stop_card_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxBtn_DeleteAll"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/TrashCan1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/TrashCan2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/TrashCan3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/TrashCan3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxBtn_DoubleLast"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleLastPage1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleLastPage2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleLastPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleLastPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxBtn_Last"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/LastPage1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/LastPage2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/LastPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/LastPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxBtn_Next"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/NextPage1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/NextPage2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/NextPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/NextPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxBtn_DoubleNext"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleNextPage1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleNextPage2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleNextPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/DoubleNextPage3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Turn"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/Turn1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/Turn2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/Turn3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UC_DataGrid/Turn3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_Stop_Restore" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_stop_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_stop_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_stop_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_stop_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_Continue_Restore" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_continue_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_continue_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_continue_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_continue_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_Start_Restore" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_start_1.png"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_start_1.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_start_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/ReStoreCardInfoPage/btn_start_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_AddData"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_add_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_add_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_add_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_DelData"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_del_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_del_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_del_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btn_Reset"  TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_reset_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_reset_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_EmergencyPage/btn_reset_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

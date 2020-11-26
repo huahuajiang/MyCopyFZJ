@@ -1,0 +1,482 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="btnNum1" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard1-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard1-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum2" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard2-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard2-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum3" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard3-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard3-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum4" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard4-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard4-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum5" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard5-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard5-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum6" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard6-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard6-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum7" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard7-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard7-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum8" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard8-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard8-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum9" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard9-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard9-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNum0" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard0-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoard0-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="btnNumX" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image x:Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoardX-1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/KeyBoardX-2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="bt_hw2" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/characterBackground.png"></ImageBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="bt_hw" TargetType="{x:Type Button}">
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/characterBackground.png" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/characterBackground.png"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/characterBackground.png"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="True">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/characterBackground.png"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border">
+                                <Setter.Value>
+                                    <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/characterBackground.png"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_background_img" TargetType="{x:Type Image}" >
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/background.png"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_numKeyboard" TargetType="{x:Type Canvas}">
+        <Setter Property="Canvas.Top" Value="60"></Setter>
+        <Setter Property="Width" Value="322"></Setter>
+        <Setter Property="Height" Value="322"></Setter>
+        <Setter Property="Visibility" Value="Hidden"></Setter>
+        
+    </Style>
+
+    <Style x:Key="UC_HandWrite_conten_img" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/kbbg.png"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum1" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum1}">
+        <Setter Property="Canvas.Left" Value="10"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+        <Setter Property="Content" Value="1"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum2" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum2}">
+        <Setter Property="Canvas.Left" Value="111"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+        <Setter Property="Content" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum3" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum3}">
+        <Setter Property="Canvas.Left" Value="213"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+        <Setter Property="Content" Value="3"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum4" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum4}">
+        <Setter Property="Canvas.Left" Value="10"></Setter>
+        <Setter Property="Canvas.Top" Value="86"></Setter>
+        <Setter Property="Content" Value="4"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum5" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum5}">
+        <Setter Property="Canvas.Left" Value="111"></Setter>
+        <Setter Property="Canvas.Top" Value="86"></Setter>
+        <Setter Property="Content" Value="5"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum6" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum6}">
+        <Setter Property="Canvas.Left" Value="214"></Setter>
+        <Setter Property="Canvas.Top" Value="86"></Setter>
+        <Setter Property="Content" Value="6"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum7" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum7}">
+        <Setter Property="Canvas.Left" Value="10"></Setter>
+        <Setter Property="Canvas.Top" Value="163"></Setter>
+        <Setter Property="Content" Value="7"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum8" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum8}">
+        <Setter Property="Canvas.Left" Value="111"></Setter>
+        <Setter Property="Canvas.Top" Value="163"></Setter>
+        <Setter Property="Content" Value="8"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum9" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum9}">
+        <Setter Property="Canvas.Left" Value="214"></Setter>
+        <Setter Property="Canvas.Top" Value="163"></Setter>
+        <Setter Property="Content" Value="9"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNum0" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNum0}">
+        <Setter Property="Canvas.Left" Value="10"></Setter>
+        <Setter Property="Canvas.Top" Value="242"></Setter>
+        <Setter Property="Content" Value="0"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnNumX" TargetType="{x:Type Button}" BasedOn="{StaticResource btnNumX}">
+        <Setter Property="Canvas.Left" Value="162"></Setter>
+        <Setter Property="Canvas.Top" Value="242"></Setter>
+        <Setter Property="Content" Value="X"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_inkCanvas" TargetType="{x:Type InkCanvas}">
+        <Setter Property="Canvas.Top" Value="60"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Width" Value="322"></Setter>
+        <Setter Property="Height" Value="322"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_button_1" TargetType="{x:Type Button}" BasedOn="{StaticResource bt_hw}">
+        <Setter Property="Canvas.Left" Value="8"></Setter>
+        <Setter Property="Canvas.Top" Value="390"></Setter>
+        <Setter Property="Width" Value="48"></Setter>
+        <Setter Property="Height" Value="48"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_button_2" TargetType="{x:Type Button}" BasedOn="{StaticResource bt_hw}">
+        <Setter Property="Canvas.Left" Value="72"></Setter>
+        <Setter Property="Canvas.Top" Value="390"></Setter>
+        <Setter Property="Width" Value="48"></Setter>
+        <Setter Property="Height" Value="48"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_button_3" TargetType="{x:Type Button}" BasedOn="{StaticResource bt_hw}">
+        <Setter Property="Canvas.Left" Value="137"></Setter>
+        <Setter Property="Canvas.Top" Value="390"></Setter>
+        <Setter Property="Width" Value="48"></Setter>
+        <Setter Property="Height" Value="48"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_button_4" TargetType="{x:Type Button}" BasedOn="{StaticResource bt_hw}">
+        <Setter Property="Canvas.Left" Value="202"></Setter>
+        <Setter Property="Canvas.Top" Value="390"></Setter>
+        <Setter Property="Width" Value="48"></Setter>
+        <Setter Property="Height" Value="48"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_button_5" TargetType="{x:Type Button}" BasedOn="{StaticResource bt_hw}">
+        <Setter Property="Canvas.Left" Value="266"></Setter>
+        <Setter Property="Canvas.Top" Value="390"></Setter>
+        <Setter Property="Width" Value="48"></Setter>
+        <Setter Property="Height" Value="48"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_btnHadWriteNum_b" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/handwrite_a.png" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Canvas.Left" Value="10"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+    </Style>
+    
+    <Style x:Key="UC_HandWrite_button_num" TargetType="{x:Type Button}" >
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA/UI_Images/UC_HandWrite/Num_a.png" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Canvas.Left" Value="10"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+    </Style>
+
+    <Style x:Key="UC_HandWrite_button_delete" TargetType="{x:Type Button}" BasedOn="{StaticResource  btnHadWriteDelete}">
+        <Setter Property="Canvas.Left" Value="215"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+    </Style>
+
+   
+
+</ResourceDictionary>

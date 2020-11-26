@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="UI_InitMachinePage_title_label" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="436"></Setter>
+        <Setter Property="Canvas.Top" Value="180"></Setter>
+        <Setter Property="FontSize" Value="72"></Setter>
+        <Setter Property="Content" Value="机构初始化"></Setter>
+    </Style>
+
+    <Style x:Key="UI_InitMachinePage_back_button" TargetType="{x:Type Button}">
+        <Setter Property="Canvas.Left" Value="96"></Setter>
+        <Setter Property="Canvas.Top" Value="860"></Setter>
+        <Setter Property="FontSize" Value="72"></Setter>
+        <Setter Property="Width" Value="223"></Setter>
+        <Setter Property="Content" Value="返回"></Setter>
+    </Style>
+
+    <Style x:Key="UI_InitMachinePage_ProgressBar_style" TargetType="{x:Type ProgressBar}">
+        <Setter Property="Canvas.Left" Value="280"></Setter>
+        <Setter Property="Canvas.Top" Value="428"></Setter>
+        <Setter Property="Width" Value="732"></Setter>
+        <Setter Property="Height" Value="102"></Setter>
+        <Setter Property="Value" Value="70"></Setter>
+        <Setter Property="Background" Value="#FFDAA3A3"></Setter>
+    </Style>
+
+    <Style x:Key="UI_InitMachinePage_start_button" TargetType="{x:Type Button}">
+        <Setter Property="Canvas.Left" Value="789"></Setter>
+        <Setter Property="Canvas.Top" Value="628"></Setter>
+        <Setter Property="FontSize" Value="72"></Setter>
+        <Setter Property="Width" Value="223"></Setter>
+        <Setter Property="Content" Value="开始"></Setter>
+    </Style>
+
+</ResourceDictionary>

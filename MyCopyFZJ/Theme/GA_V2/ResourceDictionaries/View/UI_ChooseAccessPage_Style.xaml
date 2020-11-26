@@ -1,0 +1,158 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="UI_ChooseAccessPage_title" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="240"></Setter>
+        <Setter Property="Canvas.Top" Value="151"></Setter>
+        <Setter Property="FontSize" Value="60"></Setter>
+        <Setter Property="Foreground" Value="Yellow"></Setter>
+        <Setter Property="FontFamily" Value="宋体"></Setter>
+        <Setter Property="Width" Value="800"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ChooseAccessPage_back_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="61"></Setter>
+        <Setter Property="Canvas.Top" Value="245"></Setter>
+        <Setter Property="Visibility" Value="Collapsed"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ChooseAccessPage_UC_Clock" TargetType="{x:Type UserControl}">
+        <Setter Property="Canvas.Left" Value="1111"></Setter>
+        <Setter Property="Canvas.Top" Value="30"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ChooseAccessPage_StackPanel_style" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ChooseAccessPage_grid_style" TargetType="{x:Type Grid}">
+        <Setter Property="Canvas.Left" Value="200"></Setter>
+        <Setter Property="Canvas.Top" Value="296"></Setter>
+        <Setter Property="Width" Value="970"></Setter>
+    </Style>
+
+    <Style x:Key="cardType_Choose_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="0"></Setter>
+        <Setter Property="Canvas.Top" Value="845"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_card_type.png"></Setter>
+    </Style>
+
+    <Style x:Key="btn_sfzcz_Style" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Height" Value="454"></Setter>
+        <Setter Property="Width" Value="400"></Setter>
+        <Setter Property="Canvas.Left" Value="199"></Setter>
+        <Setter Property="Canvas.Top" Value="292"></Setter>
+        <Setter Property="Margin" Value="0,0,80,0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_sfzcz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_sfzcz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_sfzcz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_ewmcz_Style" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_trdl}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Height" Value="454"></Setter>
+        <Setter Property="Width" Value="400"></Setter>
+        <Setter Property="Canvas.Left" Value="681"></Setter>
+        <Setter Property="Canvas.Top" Value="292"></Setter>
+        <Setter Property="Margin" Value="0,0,80,0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_ewmcz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_ewmcz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_ewmcz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UI_ChooseAccessPage_sfz_Style" TargetType="{x:Type Button}" BasedOn="{StaticResource  btn_brsfz}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Height" Value="454"></Setter>
+        <Setter Property="Width" Value="400"></Setter>
+        <Setter Property="Canvas.Left" Value="199"></Setter>
+        <Setter Property="Canvas.Top" Value="292"></Setter>
+        <Setter Property="Margin" Value="0,0,80,0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_sfz_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_sfz_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_sfz_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="btn_ewm_Style" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_brywbh}">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Height" Value="454"></Setter>
+        <Setter Property="Width" Value="400"></Setter>
+        <Setter Property="Canvas.Left" Value="681"></Setter>
+        <Setter Property="Canvas.Top" Value="292"></Setter>
+        <Setter Property="Margin" Value="0,0,80,0"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg"  Source="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_ewm_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_ewm_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseAccessPage/btn_ewm_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UI_ChooseAccessPage_btn_cancel" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_back}">
+        <Setter Property="Canvas.Left" Value="60"></Setter>
+        <Setter Property="Canvas.Top" Value="838"></Setter>
+    </Style>
+
+</ResourceDictionary>

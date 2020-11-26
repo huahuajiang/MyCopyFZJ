@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="UC_MemberDataGrid_CV_Body" TargetType="{x:Type Canvas}">
+        <Setter Property="Height" Value="100"></Setter>
+    </Style>
+
+    <Style x:Key="UC_MemberDataGrid_CV_BtnGround" TargetType="{x:Type Canvas}">
+        <Setter Property="Canvas.Left" Value="0"></Setter>
+        <Setter Property="Canvas.Bottom" Value="-7"></Setter>
+        <Setter Property="Width" Value="564"></Setter>
+        <Setter Property="Height" Value="32"></Setter>
+        <Setter Property="Background" Value="#DCDCDC"/>
+    </Style>
+
+</ResourceDictionary>

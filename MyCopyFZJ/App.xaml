@@ -2,8 +2,95 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MyCopyFZJ"
-             StartupUri="MainWindow.xaml">
+             Startup="Application_Startup" LoadCompleted="Application_LoadCompleted" Activated="Application_Activated">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/AddMember_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/Button_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/CheckBox_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/DatePickers_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/RadioButton_style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/Template_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/TextBox_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_BackUpData_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_AutoBackUpData_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_MsgBox_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/common/UserControls_DataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/common/UserControls_DataGridBottom_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_CertificateKeyBoard_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_Clock_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_DataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_EmergencyData_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_HandWrite_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_HKMStoreCardDataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_HKMStoreDataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_QRCodeDataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_keyBoard_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_Loading_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_MemberDataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_OutPutCardGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_QueryDataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_ReaderCardKeyBoard_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_StoreCardMsg_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_Waiting_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_DevManageData_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/UC/UC_YNHKMDataGrid_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_AdminPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseCard_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_BatchFronEndOutPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_BackUpPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_AutoBackUpPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_BatchFrontEndInPutPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_BatchOutCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_BatchStoreCardCompletePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_BatchTakeCardCompletedPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_CheckAdminRightPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_CheckStoresPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseCardTpyePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseModelPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseRolePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseTpyePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_EmergencyPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_InitMachinePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_InitPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_InputBussIDPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_InputFgPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_MemberAdminPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_OnlyReaderCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_QRCodePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ReaderCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ReceiptCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_RecoveryCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ReStoreCardInfoPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ScenePortraitPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_SelectDataPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_StoreCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_TakeCardTypePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_WaitBatchStoreCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_WaitStoreCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/TestPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ContinueStorePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ContinueTakePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_GetInfoFrExtApiPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_MachineEmergencyPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_AddInputAdminFgPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_AddAdminCompletePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_DevManagePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseEmergencyModel_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_EmergencyPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_EmergencyFgContrast_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_EmergencySDOutCard_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_EmergencyOutCard_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_EmergencyCheckModuel_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ContinueTakePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_MutiQRCodePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_InputOnlyOneFgPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_ChooseAccessPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_OprateModlePage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_StoreOrOutCardPage_Style.xaml"/>
+                <ResourceDictionary Source="/MyCopyFZJ;component/Theme/GA/ResourceDictionaries/View/UI_MakeCheckCardPage_Style.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

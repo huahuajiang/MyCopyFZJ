@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="titile_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="475"></Setter>
+        <Setter Property="Canvas.Top" Value="153"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/img_ts.png"></Setter>
+    </Style>
+
+    <Style x:Key="back_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="61"></Setter>
+        <Setter Property="Canvas.Top" Value="245"></Setter>
+        <!--<Setter Property="Source" Value="null"></Setter>-->
+    </Style>
+
+    <Style x:Key="grid_Style" TargetType="{x:Type Grid}">
+        <Setter Property="Canvas.Left" Value="200"></Setter>
+        <Setter Property="Canvas.Top" Value="296"></Setter>
+        <Setter Property="Width" Value="970"></Setter>
+    </Style>
+
+    <Style x:Key="StackPanel_style" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="cardType_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="0"></Setter>
+        <Setter Property="Canvas.Top" Value="845"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_card_type.png"></Setter>
+    </Style>
+
+    <Style x:Key="bottom_grid" TargetType="{x:Type Grid}">
+        <Setter Property="Canvas.Left" Value="0"></Setter>
+        <Setter Property="Canvas.Top" Value="860"></Setter>
+        <Setter Property="Width" Value="1221"></Setter>
+    </Style>
+
+    <Style x:Key="bottom_StackPanel_style" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+    </Style>
+
+    <Style x:Key="chooseCardType_style" TargetType="{x:Type Image}">
+        <Setter Property="Margin" Value="0,0,10,0"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/word_klqyxzj.png"></Setter>
+    </Style>
+
+    <Style x:Key="sfz_img_Style" TargetType="{x:Type Image}">
+        <Setter Property="Margin" Value="0,0,10,0"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_sfz.png"></Setter>
+    </Style>
+
+    <Style x:Key="jzz_img_Style" TargetType="{x:Type Image}">
+        <Setter Property="Margin" Value="0,0,10,0"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_jzz.png"></Setter>
+    </Style>
+
+    <Style x:Key="twtxz_img_Style" TargetType="{x:Type Image}">
+        <Setter Property="Margin" Value="0,0,10,0"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_twtxz.png"></Setter>
+    </Style>
+
+    <Style x:Key="gatx_img_Style" TargetType="{x:Type Image}">
+        <Setter Property="Margin" Value="0,0,10,0"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_gatxz.png"></Setter>
+    </Style>
+
+    <Style x:Key="hz_img_Style" TargetType="{x:Type Image}">
+        <Setter Property="Margin" Value="0,0,10,0"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V2/UI_Images/UI_ChooseTpyePage/bg_hz.png"></Setter>
+    </Style>
+
+    <Style x:Key="btn_jzz_Style" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_jzz}">
+        <Setter Property="Canvas.Left" Value="199"></Setter>
+        <Setter Property="Canvas.Top" Value="292"></Setter>
+        <Setter Property="Margin" Value="0,0,80,0"></Setter>
+    </Style>
+
+    <Style x:Key="btn_sfz_Style" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_sfz}">
+        <Setter Property="Canvas.Left" Value="681"></Setter>
+        <Setter Property="Canvas.Top" Value="292"></Setter>
+        <Setter Property="Margin" Value="0,0,80,0"></Setter>
+    </Style>
+
+
+</ResourceDictionary>

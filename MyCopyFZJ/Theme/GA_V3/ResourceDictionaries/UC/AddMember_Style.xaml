@@ -1,0 +1,104 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style x:Key="AddMemberStyle" TargetType="{x:Type Window}">
+        <Setter Property="Height" Value="255"></Setter>
+        <Setter Property="Width" Value="376"></Setter>
+        <Setter Property="ResizeMode" Value="NoResize"></Setter>
+        <Setter Property="WindowStyle" Value="None"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/bg_cygl.png"></ImageBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AddMember_txtB_sfzhm" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="129"></Setter>
+        <Setter Property="Height" Value="23"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="Canvas.Left" Value="169"></Setter>
+        <Setter Property="Canvas.Top" Value="73"></Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/bg_txtbox.png"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AddMember_txtB_xm" TargetType="{x:Type TextBox}" BasedOn="{StaticResource AddMember_txtB_sfzhm}">
+        <Setter Property="Canvas.Left" Value="169"></Setter>
+        <Setter Property="Canvas.Top" Value="119"></Setter>
+    </Style>
+
+    <Style x:Key="AddMember_btn_wind_close" TargetType="Button">
+        <Setter Property="Canvas.Left" Value="326"></Setter>
+        <Setter Property="Canvas.Top" Value="10"></Setter>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/btn_cancel_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/btn_cancel_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/btn_cancel_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AddMember_btn_sumbit" TargetType="Button">
+        <Setter Property="Canvas.Left" Value="147"></Setter>
+        <Setter Property="Canvas.Top" Value="188"></Setter>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Name="BtnBg" Source="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/btn_qr_1.png" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/btn_qr_2.png" TargetName="BtnBg"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/btn_qr_3.png" TargetName="BtnBg"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AddMember_labMessage" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="57"></Setter>
+        <Setter Property="Canvas.Top" Value="158"></Setter>
+        <Setter Property="Width" Value="257"></Setter>
+        <Setter Property="Height" Value="25"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="Red"></Setter>
+    </Style>
+
+    <Style x:Key="AddMember_img_sfzhm" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="57"></Setter>
+        <Setter Property="Canvas.Top" Value="73"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/word_sfzhm.png"/>
+    </Style>
+
+    <Style x:Key="AddMember_img_xm" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="57"></Setter>
+        <Setter Property="Canvas.Top" Value="118"></Setter>
+        <Setter Property="Source" Value="/ZZFZJ;component/Theme/GA_V3/UI_Images/AddMember/word_xm.png"/>
+    </Style>
+    
+</ResourceDictionary>

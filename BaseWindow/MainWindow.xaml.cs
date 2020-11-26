@@ -4,6 +4,7 @@ using FormUIFlow;
 using MisFrameWork.core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -49,7 +50,7 @@ namespace BaseWindow
 
         private DispatcherTimer GCTimer = new DispatcherTimer();
         private int maxWorkingSet = 209715200;
-        private UIFlowConfig UiConfig;
+        public UIFlowConfig UiConfig;//当前Ui流程
         private UIFlowConfig AdminUiConfig;
         private UIFlowConfig NomUiConfig;
         private string Adm = "";
@@ -87,7 +88,7 @@ namespace BaseWindow
         {
             InitializeComponent();
             InitUiConfig();
-            
+
         }
 
         private void InitUiConfig()
@@ -95,7 +96,7 @@ namespace BaseWindow
             try
             {
                 configFile = new UnCaseSenseHashTable();
-                string SysConfig=AppDomain.CurrentDomain.BaseDirectory+ "SystemConfig\\main_cfg.json";
+                string SysConfig = AppDomain.CurrentDomain.BaseDirectory + "SystemConfig\\main_cfg.json";
                 configFile.LoadFromJsonFile(SysConfig);
 
                 if (configFile.HasValue("UI_CFG"))
@@ -119,7 +120,7 @@ namespace BaseWindow
 
                 UnCaseSenseHashTable UIGolbal = new UnCaseSenseHashTable();
                 UIGolbal.LoadFromJsonFile(AppDomain.CurrentDomain.BaseDirectory + "SystemConfig\\app_config_vars.json");
-                for(int i = 0; i < UIGolbal.Count; i++)
+                for (int i = 0; i < UIGolbal.Count; i++)
                 {
                     string[] key = new string[UIGolbal.Count];
                     UIGolbal.Keys.CopyTo(key, 0);
@@ -129,9 +130,10 @@ namespace BaseWindow
                         AdminUiConfig.GetGlobalVar().Add(key[i], UIGolbal[key[i]]);
                     }
                 }
-                
+
                 UiConfig = NomUiConfig;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
@@ -163,7 +165,8 @@ namespace BaseWindow
                     this.mainFrame.RemoveBackEntry();
                     this.mainFrame.NavigationService.RemoveBackEntry();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
@@ -171,12 +174,76 @@ namespace BaseWindow
 
         private void txtB_pwd_GotFocus(object sender, RoutedEventArgs e)
         {
+            HandlePhInputClick(sender);
+        }
 
+        /// <summary>
+        /// 实例化输入板
+        /// </summary>
+        /// <param name="sender"></param>
+        private void HandlePhInputClick(object sender)
+        {
+            try
+            {
+                TextBox tb = sender as TextBox;
+                if (tb == null)
+                {
+                    return;
+                }
+                this.tbGetForcus = tb;
+                if (uc_Certificatekeyboard == null)
+                {
+                    uc_Certificatekeyboard = new UC_CertificateKeyBoard() { Width = 630, Height = 350, inputTextBox = txtB_pwd };
+                }
+                Panel can = tb.Parent as Panel;
+                if (can != null)
+                {
+                    if (!can.Children.Contains(uc_Certificatekeyboard))
+                    {
+                        can.Children.Add(uc_Certificatekeyboard);
+                    }
+                }
+                if (this.isvisibHand == true)
+                {
+                    this.uc_Certificatekeyboard.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    this.uc_Certificatekeyboard.Visibility = Visibility.Visible;
+                }
+                Canvas.SetLeft(uc_Certificatekeyboard, Canvas.GetLeft(tb));
+                Canvas.SetLeft(uc_Certificatekeyboard, Canvas.GetTop(tb) + tb.Height + 10);
+            }
+            catch (Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
         }
 
         private void btn_submit_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                if (UiConfig.GetGlobalVar().HasKeyValue("ADMIN_PWD"))
+                {
+                    if (txtB_pwd.Text == Convert.ToString(UiConfig.GetGlobalVar()["ADMIN_PWD"]))
+                    {
+                        Point curPoint = new Point();
+                        curPoint.Y = 0;
+                        curPoint.X = -this.ActualWidth;
+                        MoveTo(curPoint, CanSreenPrt, 1);
+                        IsCloseProtectScreen = true;
+                        if (Convert.ToString(UiConfig.GetGlobalVar()["NEED_PROTECT_SCREEN"]) != "0")
+                        {
+                            StartSreenProtect();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -192,7 +259,7 @@ namespace BaseWindow
             Canvas.SetTop(can_pwd, CanSreenPrt.Height * 5 / 7);
 
             FileInfo fi = new FileInfo(System.Windows.Forms.Application.ExecutablePath);
-            if(File.Exists(fi.Directory.Parent.FullName+ "\\is_autoupdate_server.txt"))
+            if (File.Exists(fi.Directory.Parent.FullName + "\\is_autoupdate_server.txt"))
             {
                 MessageBox.Show("又不听话了，不要在服务器上运行程序!");
                 Environment.Exit(0);
@@ -207,7 +274,7 @@ namespace BaseWindow
 
                 this.EventsRegistion();
 
-                uc_Certificatekeyboard.Visibility = Visibility.Hidden;
+                uc_keyboard.Visibility = Visibility.Hidden;
                 uc_keyboard.SwitchEvent = new HB_UserControls.UC.UC_Keyboard_Admin.SwitchEventHandle(Logout);
                 uc_keyboard.ComFirmEvent += new HB_UserControls.UC.UC_Keyboard_Admin.ComFirmEventHandle(btn_comfirm);
                 uc_keyboard.Set_Parent_Data(this.Width, this.Height);
@@ -215,7 +282,7 @@ namespace BaseWindow
                 InitWindow(0);
                 JumpPage("");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
                 MessageBox.Show("系统错误：" + ex.Message, "错误");
@@ -223,6 +290,11 @@ namespace BaseWindow
 
         }
 
+
+        /// <summary>
+        /// 确认按钮
+        /// </summary>
+        /// <param name="data">输入数字</param>
         private void btn_comfirm(string data)
         {
             try
@@ -275,7 +347,7 @@ namespace BaseWindow
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
@@ -288,13 +360,13 @@ namespace BaseWindow
                 InitWindow(0);
                 JumpPage("Home");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
-        private void JumpPage(string Operation)
+        public void JumpPage(string Operation)
         {
             bool IsNoNeedJump = false;
             try
@@ -309,7 +381,7 @@ namespace BaseWindow
                         if (ushtmp.HasValue("__GO_BACK__"))
                         {
                             int step = ushtmp.GetIntValue("__GO_BACK__");
-                            for(int i = 0; i < step; i++)
+                            for (int i = 0; i < step; i++)
                             {
                                 UiConfig.GotoPreviousStep();
                             }
@@ -351,15 +423,19 @@ namespace BaseWindow
                     {
                         return;
                     }
+                    BasePage control = UiConfig.GetCurrentStepObject() as BasePage;
+                    control.ParentWindow = this;
+                    this.mainFrame.Navigate(control);
 
-                    
-                }catch(Exception e)
+                }
+                catch (Exception e)
                 {
                     FlashLogger.Error(ComFun.ErrorMessage(e));
                     MessageBox.Show("JumpPage出错，请重新配置配置文件:" + e.Message);
                     Environment.Exit(0);
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
                 MessageBox.Show("系统页面跳转出错：" + ex.Message);
@@ -378,13 +454,17 @@ namespace BaseWindow
 
                 SetEdition(VERSION);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
-        private void SetEdition(string version="")
+        /// <summary>
+        /// 设置版本
+        /// </summary>
+        /// <param name="version"></param>
+        private void SetEdition(string version = "")
         {
             if (!string.IsNullOrEmpty(version))
             {
@@ -393,15 +473,17 @@ namespace BaseWindow
             }
             else
             {
-                lbl_version.Content = "版本编号:" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + "   "+ "机器编号："+ UiConfig.GetGlobalVar()["MACHINE_NO"].ToString();
+                lbl_version.Content = "版本编号:" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + "   " + "机器编号：" + UiConfig.GetGlobalVar()["MACHINE_NO"].ToString();
             }
         }
 
         private void Is_Out_Log()
         {
-            if (UiConfig.GetGlobalVar().HasValue("IS_CREATE_LOG")){
+            if (UiConfig.GetGlobalVar().HasValue("IS_CREATE_LOG"))
+            {
                 UiConfig.IsOutLogger = true;
-            }else
+            }
+            else
             {
                 UiConfig.IsOutLogger = false;
             }
@@ -425,13 +507,13 @@ namespace BaseWindow
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
-        private void SwithUi(int type=0)
+        private void SwithUi(int type = 0)
         {
             try
             {
@@ -448,7 +530,8 @@ namespace BaseWindow
                         {
                             UiConfig = AdminUiConfig;
                             SystemMode = 1;
-                            if(Convert.ToString(UiConfig.GetGlobalVar()["NEED_PROTECT_SCREEN"]) != "0"){
+                            if (Convert.ToString(UiConfig.GetGlobalVar()["NEED_PROTECT_SCREEN"]) != "0")
+                            {
                                 StartSreenProtect();
                             }
                         }
@@ -459,12 +542,16 @@ namespace BaseWindow
                         StopSreenProtect();
                         break;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
+        /// <summary>
+        /// 停止屏保线程
+        /// </summary>
         private void StopSreenProtect()
         {
             try
@@ -477,12 +564,15 @@ namespace BaseWindow
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
+        /// <summary>
+        /// 开启屏保线程
+        /// </summary>
         private void StartSreenProtect()
         {
             try
@@ -501,12 +591,15 @@ namespace BaseWindow
                 SreenThread.Start();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
+        /// <summary>
+        /// 屏保线程
+        /// </summary>
         private void SreenThreadHandler()
         {
             try
@@ -535,12 +628,18 @@ namespace BaseWindow
                     SRT_COUNT++;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
+        /// <summary>
+        /// 移动
+        /// </summary>
+        /// <param name="deskPoint"></param>
+        /// <param name="ell"></param>
+        /// <param name="space"></param>
         private void MoveTo(Point deskPoint, Canvas ell, double space)
         {
             try
@@ -564,12 +663,18 @@ namespace BaseWindow
                 Storyboard.SetTargetProperty(doubleAnimation, new PropertyPath("(Canvas.Top)"));
                 storyboard.Children.Add(doubleAnimation);
                 storyboard.Begin();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
         }
 
+        /// <summary>
+        /// 按下鼠标按钮时发生
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UI_MouseDown(object sender, MouseButtonEventArgs e)
         {
             try
@@ -581,7 +686,8 @@ namespace BaseWindow
                     txtB_pwd.MoveFocus(t);
                     this.uc_Certificatekeyboard.Visibility = Visibility.Hidden;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
             }
@@ -589,8 +695,89 @@ namespace BaseWindow
 
         private void Window_Deactivated(object sender, EventArgs e)
         {
+            try
+            {
+                SetWorking(maxWorkingSet);
+            }
+            catch (Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
+        private void SetWorking(int maxWorkingSet)
+        {
+            IntPtr min = Process.GetCurrentProcess().MinWorkingSet;
+            try
+            {
+                Process.GetCurrentProcess().MaxWorkingSet = (IntPtr)maxWorkingSet;
+            }
+            catch (Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+                Process.GetCurrentProcess().MaxWorkingSet = min;
+            }
+        }
+
+        /// <summary>
+        /// 打开屏保
+        /// </summary>
+        /// <param name="type">1显示密码输入 0不显示密码输入</param>
+        public void OpenProtectScreen(int type)
+        {
+            this.Dispatcher.BeginInvoke((Action)delegate ()
+            {
+                if (type == 0)
+                {
+                    this.Dispatcher.BeginInvoke((Action)delegate ()
+                    {
+                        label.Content = "请验证二维码或者指纹退出屏保";
+                        txtB_pwd.Visibility = Visibility.Collapsed;
+                        btn_submit.Visibility = Visibility.Collapsed;
+                    });
+                }
+                Point curPoint = new Point();
+                curPoint.Y = 0;
+                curPoint.X = 0;
+                MoveTo(curPoint, CanSreenPrt, 1);
+                IsCloseProtectScreen = true;
+            });
+        }
 
 
+        /// <summary>
+        /// 关闭屏保
+        /// </summary>
+        public void CloseProtectScreen()
+        {
+            this.Dispatcher.BeginInvoke((Action)delegate ()
+            {
+                Point curPoint = new Point();
+                curPoint.Y = 0;
+                curPoint.X = -this.ActualWidth;
+                MoveTo(curPoint, CanSreenPrt, 1);
+                IsCloseProtectScreen = false;
+            });
+        }
+
+        /// <summary>
+        /// 获取屏保状态
+        /// </summary>
+        /// <returns></returns>
+        public bool GetProtectScreenStatus()
+        {
+            return IsCloseProtectScreen;
+        }
+
+        public void SetMarqueePosition(double left, double top)
+        {
+            Canvas.SetTop(this.scrollingTextControl, top);
+            Canvas.SetLeft(this.scrollingTextControl, left);
+        }
+
+        public void SetVersionControlColor(Brush brushes)
+        {
+            lbl_version.Foreground = brushes;
         }
     }
 }

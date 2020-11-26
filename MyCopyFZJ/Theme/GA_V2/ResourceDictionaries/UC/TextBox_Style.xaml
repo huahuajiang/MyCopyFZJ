@@ -1,0 +1,50 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ZZFZJ.ResourceDictionaries">
+
+    <Style x:Key="txtbox_style" TargetType="{x:Type TextBox}">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" >
+            <Setter.Value>
+                <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/bg_text.png"/>
+            </Setter.Value>
+        </Setter>
+        <!--<Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsFocused" Value="false" />
+                    <Condition Property="Tag" Value="blue" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" >
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/TextBoxStyle.png"></ImageBrush>
+                    </Setter.Value>
+                </Setter>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsFocused" Value="true" />
+                    <Condition Property="Tag" Value="red" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" >
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/TextBoxStyle_choose.png"></ImageBrush>
+                    </Setter.Value>
+                </Setter>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsFocused" Value="false" />
+                    <Condition Property="Tag" Value="red" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" >
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/ZZFZJ;component/Theme/GA_V2/UI_Images/Common/TextBoxStyle_choose.png"></ImageBrush>
+                    </Setter.Value>
+                </Setter>
+            </MultiTrigger>
+        </Style.Triggers>-->
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,153 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="UI_ReStoreCardInfoPage_title_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="547"></Setter>
+        <Setter Property="Canvas.Top" Value="157"></Setter>
+        <Setter Property="Source" Value="/MyCopyFZJ;component/Theme/GA/UI_Images/ReStoreCardInfoPage/word_cxrk.png"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_back_img" TargetType="{x:Type Image}">
+        <Setter Property="Canvas.Left" Value="60"></Setter>
+        <Setter Property="Canvas.Top" Value="246"></Setter>
+        <Setter Property="Source" Value="/MyCopyFZJ;component/Theme/GA/UI_Images/ReStoreCardInfoPage/bg_restore.png"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_cardPosition_label" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="93"></Setter>
+        <Setter Property="Canvas.Top" Value="287"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Content" Value="证件开始位置:"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_to_label" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="388"></Setter>
+        <Setter Property="Canvas.Top" Value="287"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Content" Value="至"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_can_zjzl" TargetType="{x:Type Canvas}">
+        <Setter Property="Canvas.Left" Value="620"></Setter>
+        <Setter Property="Canvas.Top" Value="285"></Setter>
+        <Setter Property="Height" Value="36"></Setter>
+        <Setter Property="Width" Value="390"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_cardTpey_label" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="6"></Setter>
+        <Setter Property="Canvas.Top" Value="0"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Content" Value="证件类型"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_WrapPanel_Style" TargetType="{x:Type WrapPanel}">
+        <Setter Property="Canvas.Left" Value="100"></Setter>
+        <Setter Property="Canvas.Top" Value="5"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_labMessage" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="401"></Setter>
+        <Setter Property="Canvas.Top" Value="850"></Setter>
+        <Setter Property="Width" Value="519"></Setter>
+        <Setter Property="Height" Value="69"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="35"></Setter>
+        <Setter Property="Foreground" Value="Red"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_rad_all" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource rad_check}">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Margin" Value="0,0,20,0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Content" Value="全部"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_rad_k" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource rad_check}">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Margin" Value="0,0,20,0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Content" Value="卡"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_rad_b" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource rad_check}">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Margin" Value="0,0,20,0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Content" Value="本"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_rad_hb" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource rad_check}">
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Margin" Value="0,0,20,0"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Content" Value="厚本"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_txtB_status" TargetType="{x:Type TextBox}">
+        <Setter Property="Canvas.Left" Value="98"></Setter>
+        <Setter Property="Canvas.Top" Value="343"></Setter>
+        <Setter Property="Height" Value="362"></Setter>
+        <Setter Property="Width" Value="1085"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+    </Style>
+
+
+    <Style x:Key="UI_ReStoreCardInfoPage_Start_txt" TargetType="{x:Type TextBox}" BasedOn="{StaticResource txtbox_style}">
+        <Setter Property="Canvas.Left" Value="254"></Setter>
+        <Setter Property="Canvas.Top" Value="293"></Setter>
+        <Setter Property="Height" Value="23"></Setter>
+        <Setter Property="Width" Value="120"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_End_txt" TargetType="{x:Type TextBox}" BasedOn="{StaticResource txtbox_style}">
+        <Setter Property="Canvas.Left" Value="453"></Setter>
+        <Setter Property="Canvas.Top" Value="293"></Setter>
+        <Setter Property="Height" Value="23"></Setter>
+        <Setter Property="Width" Value="120"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfPage_btn_Restore" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_Start_Restore}">
+        <Setter Property="Canvas.Left" Value="1054"></Setter>
+        <Setter Property="Canvas.Top" Value="726"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfoPage_btn_cancel" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_back}">
+        <Setter Property="Canvas.Left" Value="60"></Setter>
+        <Setter Property="Canvas.Top" Value="836"></Setter>
+    </Style>
+
+
+    <Style x:Key="UI_ReStoreCardInfPage_btn_Continue_Restore" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_Continue_Restore}">
+        <Setter Property="Canvas.Left" Value="902"></Setter>
+        <Setter Property="Canvas.Top" Value="726"></Setter>
+    </Style>
+
+    <Style x:Key="UI_ReStoreCardInfPage_btn_Stop_Restore" TargetType="{x:Type Button}" BasedOn="{StaticResource btn_Stop_Restore}">
+        <Setter Property="Canvas.Left" Value="745"></Setter>
+        <Setter Property="Canvas.Top" Value="726"></Setter>
+    </Style>
+
+
+</ResourceDictionary>

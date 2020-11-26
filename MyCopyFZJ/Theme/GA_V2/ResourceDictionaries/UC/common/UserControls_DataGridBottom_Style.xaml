@@ -1,0 +1,65 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="UC_Common_btn_firstpage" TargetType="{x:Type Button}" BasedOn="{StaticResource ListBoxBtn_DoubleLast}">
+        <Setter Property="Canvas.Left" Value="2"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_btn_laststep" TargetType="{x:Type Button}" BasedOn="{StaticResource ListBoxBtn_Last}">
+        <Setter Property="Canvas.Left" Value="32"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_lbl_currentPage" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="65"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+        <Setter Property="Width" Value="22"></Setter>
+        <Setter Property="Height" Value="32"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_lbl_endPage" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="95"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+        <Setter Property="Width" Value="20"></Setter>
+        <Setter Property="Height" Value="32"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_lbl_or" TargetType="{x:Type Label}">
+        <Setter Property="Canvas.Left" Value="90"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+        <Setter Property="Width" Value="6"></Setter>
+        <Setter Property="Height" Value="32"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="Padding" Value="0,5"></Setter>
+        <Setter Property="Content" Value="/"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_btn_nextstep" TargetType="{x:Type Button}" BasedOn="{StaticResource ListBoxBtn_Next}">
+        <Setter Property="Canvas.Left" Value="120"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_btn_endpage" TargetType="{x:Type Button}" BasedOn="{StaticResource ListBoxBtn_DoubleNext}">
+        <Setter Property="Canvas.Left" Value="150"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_txt_pagenum" TargetType="{x:Type TextBox}">
+        <Setter Property="Canvas.Left" Value="182"></Setter>
+        <Setter Property="Canvas.Top" Value="2"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Height" Value="30"></Setter>
+        <Setter Property="Width" Value="25"></Setter>
+    </Style>
+
+    <Style x:Key="UC_Common_btn_turn_to" TargetType="{x:Type Button}" BasedOn="{StaticResource Turn}">
+        <Setter Property="Canvas.Left" Value="210"></Setter>
+        <Setter Property="Canvas.Top" Value="3"></Setter>
+        <Setter Property="Margin" Value="0,-1"></Setter>
+    </Style>
+
+</ResourceDictionary>
