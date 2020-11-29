@@ -133,7 +133,7 @@ namespace BaseWindow.Common
             this.ParentWindow.JumpPage("Home");
         }
 
-        private void DisTimerEvent(int startTimeMS)
+        public void DisTimerEvent(int startTimeMS)
         {
            for(int i = 0; i < enableButtons.Count; i++)
             {

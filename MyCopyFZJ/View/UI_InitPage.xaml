@@ -1,0 +1,15 @@
+﻿<base:BasePage x:Class="MyCopyFZJ.View.UI_InitPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyCopyFZJ.View"
+      xmlns:base="clr-namespace:BaseWindow.Common;assembly=BaseWindow"
+      mc:Ignorable="d" 
+      d:DesignHeight="1024" d:DesignWidth="1280"
+      Title="UI_InitPage" Loaded="BasePage_Loaded">
+
+    <Grid>
+        
+    </Grid>
+</base:BasePage>

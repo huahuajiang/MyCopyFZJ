@@ -1,10 +1,15 @@
-﻿using MisFrameWork.core;
+﻿using BaseWindow.Common;
+using MisFrameWork.core;
+using MyCopyFZJ.ComFunction;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Management;
 using System.Reflection;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -105,9 +110,56 @@ namespace MyCopyFZJ
             }
         }
 
+        private List<UnCaseSenseHashTable> getJosn(string path)
+        {
+            StringBuilder str = new StringBuilder();
+            str.Append("");
+            FileStream fs = new FileStream(path, FileMode.Open);
+            StreamReader m_streamReader = new StreamReader(fs, Encoding.GetEncoding("gb2312"));
+            str.Append(m_streamReader.ReadToEnd());
+            m_streamReader.Close();
+            m_streamReader.Dispose();
+            Style_Struct resJson = new Style_Struct();
+            Object obj = ClsConverJson.JsonToObject(str.ToString(), typeof(Style_Struct));
+            resJson = (Style_Struct)obj;
+            List<UnCaseSenseHashTable> styleList = new List<UnCaseSenseHashTable>();
+            if (resJson.THEME != null)
+            {
+                foreach(Style_Struct.Datum tmpdata in resJson.THEME)
+                {
+                    UnCaseSenseHashTable tmp = new UnCaseSenseHashTable();
+                    tmp["FILENAME"] = tmpdata.FILENAME;
+                    styleList.Add(tmp);
+                }
+            }
+            return styleList;
+        }
+
         private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
 
+            USBEvent ue = new USBEvent();
+            ue.AddUSBEventWatcher(USBEventHandler, USBEventHandler, new TimeSpan(0, 0, 2));
+        }
+
+        public void USBEventHandler(Object sender, EventArrivedEventArgs e)
+        {
+            try
+            {
+                foreach(USBControllerDevice Device in USBEvent.WhoUSBControllerDevice(e))
+                {
+                    if(e.NewEvent.ClassPath.ClassName== "__InstanceCreationEvent")
+                    {
+                        FlashLogger.Warn("=====>>USB控制器设备ID:" + Device.Dependent + "插入");
+                    }else if(e.NewEvent.ClassPath.ClassName== "__InstanceDeletionEvent")
+                    {
+                        FlashLogger.Warn("=====>>USB控制器设备ID:" + Device.Dependent + "拔出");
+                    }
+                }
+            }catch(Exception ex)
+            {
+
+            }
         }
 
         private void Application_Activated(object sender, EventArgs e)
