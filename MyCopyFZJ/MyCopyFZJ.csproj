@@ -38,6 +38,10 @@
     <Reference Include="FormUIFlow">
       <HintPath>..\BaseWindow\Lib\FormUIFlow.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.SpeechLib">
+      <HintPath>Lib\Interop.SpeechLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MisFrameWork.core">
       <HintPath>..\BaseWindow\Lib\MisFrameWork.core.dll</HintPath>
     </Reference>
