@@ -35,12 +35,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>Lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>Lib\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>Lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>Lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>Lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision">
+      <HintPath>Lib\AForge.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="APIFrameWork">
+      <HintPath>Lib\APIFrameWork.dll</HintPath>
+    </Reference>
     <Reference Include="FormUIFlow">
       <HintPath>..\BaseWindow\Lib\FormUIFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="InitControl">
+      <HintPath>Lib\InitControl.dll</HintPath>
     </Reference>
     <Reference Include="Interop.SpeechLib">
       <HintPath>Lib\Interop.SpeechLib.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MachineFrameWork">
+      <HintPath>Lib\MachineFrameWork.dll</HintPath>
     </Reference>
     <Reference Include="MisFrameWork.core">
       <HintPath>..\BaseWindow\Lib\MisFrameWork.core.dll</HintPath>

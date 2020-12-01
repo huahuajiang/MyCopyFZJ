@@ -4,12 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyCopyFZJ.View"
+      xmlns:UC="clr-namespace:InitControl;assembly=InitControl"         
       xmlns:base="clr-namespace:BaseWindow.Common;assembly=BaseWindow"
       mc:Ignorable="d" 
       d:DesignHeight="1024" d:DesignWidth="1280"
       Title="UI_InitPage" Loaded="BasePage_Loaded">
 
-    <Grid>
-        
-    </Grid>
+    <Canvas>
+        <UC:InitDriver x:Name="initdriver" Style="{StaticResource UI_InitPage_initdriver_style}"></UC:InitDriver>
+        <Button x:Name="btn_restart" Style="{StaticResource UI_InitPage_btn_restart}"></Button>
+    </Canvas>
 </base:BasePage>

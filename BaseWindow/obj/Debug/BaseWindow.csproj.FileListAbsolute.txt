@@ -23,7 +23,6 @@ E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\BaseWindow.pdb
 E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\UserControls\MarqueeControl.g.cs
 E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\UserControls\MarqueeControl.baml
-E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\BaseWindow.csprojResolveAssemblyReference.cache
 E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\UserControls\UC_CertificateKeyBoard.g.cs
 E:\My VS Work\MyCopyFZJ\BaseWindow\bin\Debug\BaseWindow.exe.config
 E:\My VS Work\MyCopyFZJ\BaseWindow\bin\Debug\BaseWindow.exe
@@ -54,3 +53,4 @@ E:\My VS Work\MyCopyFZJ\BaseWindow\obj\Debug\BaseWindow.csproj.CoreCompileInputs
 E:\My VS Work\MyCopyFZJ\BaseWindow\obj\Debug\BaseWindow.csproj.CopyComplete
 E:\My VS Work\MyCopyFZJ\BaseWindow\obj\Debug\BaseWindow.exe
 E:\My VS Work\MyCopyFZJ\BaseWindow\obj\Debug\BaseWindow.pdb
+E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\UserControls\UC_CertificateKeyBoard.baml

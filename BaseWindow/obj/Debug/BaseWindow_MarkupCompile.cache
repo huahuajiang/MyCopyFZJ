@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\My VS Work\MyCopyFZJ\BaseWindow\obj\Debug\
+E:\VSWork\MyCopyFZJ\BaseWindow\obj\Debug\
 BaseWindow
 none
 false
 DEBUG;TRACE
-E:\My VS Work\MyCopyFZJ\BaseWindow\App.xaml
+E:\VSWork\MyCopyFZJ\BaseWindow\App.xaml
 4-416203079
 
 12-551932857
-212138799566
+211874947057
 MainWindow.xaml;ResourceDictionaries\Button_Style.xaml;UserControls\MarqueeControl.xaml;UserControls\UC_CertificateKeyBoard.xaml;
 
 False

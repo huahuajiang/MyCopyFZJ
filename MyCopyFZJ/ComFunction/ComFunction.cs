@@ -78,6 +78,11 @@ namespace MyCopyFZJ.ComFunction
             return card_global_value;
         }
 
+        /// <summary>
+        /// 获取管理员所有信息
+        /// </summary>
+        /// <param name="AllDate"></param>
+        /// <returns></returns>
         public static UnCaseSenseHashTable GetAdminGlobalValue(UnCaseSenseHashTable AllDate)
         {
             UnCaseSenseHashTable card_global_value = new UnCaseSenseHashTable();
@@ -85,9 +90,66 @@ namespace MyCopyFZJ.ComFunction
             if (AllDate.HasKeyValue("ADMIN_GLOBAL_VALUE"))
             {
                 card_global_value = (UnCaseSenseHashTable)AllDate["ADMIN_GLOBAL_VALUE"];
-            }else
+            }
+            else
             {
                 AllDate.Add("ADMIN_GLOBAL_VALUE", card_global_value);
+            }
+
+            return card_global_value;
+        }
+
+        /// <summary>
+        /// 输出管理员所有信息
+        /// </summary>
+        /// <param name="AllDate"></param>
+        /// <param name="Key"></param>
+        /// <param name="PageParameter"></param>
+        public static void OutPutParameterAdmin_Info(UnCaseSenseHashTable AllDate,string Key,string PageParameter)
+        {
+            if (PageParameter == null)
+            {
+                PageParameter = "";
+            }
+
+            UnCaseSenseHashTable card_Info = GetAdminGlobalValue(AllDate);
+
+            if (card_Info.HasKeyValue(Key))
+            {
+                card_Info[Key] = PageParameter;
+            }else
+            {
+                card_Info.Add(Key, PageParameter);
+            }
+        }
+
+        public static void InPutParameterAdmin_Info(UnCaseSenseHashTable AllDate,string Key,ref string PageParameter,string DefaultValue = "")
+        {
+            UnCaseSenseHashTable person_info = GetAdminGlobalValue(AllDate);
+            PageParameter = DefaultValue;
+
+            if (person_info.HasKeyValue(Key))
+            {
+                PageParameter = person_info[Key].ToString();
+            }
+        }
+
+        public static void OutPutParameterCard_Info(UnCaseSenseHashTable AllDate,string Key,string PageParameter)
+        {
+            if (PageParameter == null)
+            {
+                PageParameter = "";
+
+            }
+
+            UnCaseSenseHashTable card_Info = GetCardGlobalValue(AllDate);
+
+            if (card_Info.HasKeyValue(Key))
+            {
+                card_Info[Key] = PageParameter;
+            }else
+            {
+                card_Info.Add(Key, PageParameter);
             }
         }
     }
