@@ -79,6 +79,7 @@
     </ApplicationDefinition>
     <Compile Include="Common\BasePage.cs" />
     <Compile Include="Common\ComFun.cs" />
+    <Compile Include="Common\FgInfo.cs" />
     <Compile Include="Common\FlashLogger.cs" />
     <Compile Include="Common\FlashLogLevel.cs" />
     <Compile Include="Common\FlashLogMessage.cs" />

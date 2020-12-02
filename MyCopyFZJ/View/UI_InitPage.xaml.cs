@@ -6,6 +6,7 @@ using MachineFrameWork.Classes;
 using MachineFrameWork.ExtDeviceInterface;
 using MachineFrameWork.FingerprintInterface;
 using MachineFrameWork.QRCodeReaderInterface;
+using MisFrameWork.core;
 using MyCopyFZJ.ComFunction;
 using OpsCore;
 using System;
@@ -191,6 +192,117 @@ namespace MyCopyFZJ.View
                 FlashLogger.Debug("初始化指纹仪");
                 GlobalsFuncs.SetMachineWorkingPath(FG_PATH);
                 GlobalsFuncs.InitDll();
+
+                int err_code = GlobalsFuncs.GetFingerprintMachineObject(out mFingerprintReaderInterface, out err_msg);
+                if (err_code != 0)
+                {
+                    FlashLogger.Error("初始化指纹仪失败：" + err_code.ToString());
+                    success = false;
+                }else
+                {
+                    success = true;
+                    if (IS_START_FG == "1")
+                    {
+                        int count = 0;
+                        while (count < 3 && ComFunction.ComFunction.IsRunningFinger == true)
+                        {
+                            Thread.Sleep(2000);
+                            count++;
+                        }
+                        if (ComFunction.ComFunction.IsRunningFinger == true)
+                        {
+                            FlashLogger.Error("后台指纹仪无法终止");
+                            success = false;
+                        }else
+                        {
+                            ComFunction.ComFunction.IsRunningFinger = true;
+                            ComFunction.ComFunction.BackWorkerFinger = new Thread(CheckAmdin_ReadFg);
+                            ComFunction.ComFunction.BackWorkerFinger.IsBackground = true;
+                            ComFunction.ComFunction.BackWorkerFinger.Start();
+                            success = true;
+                        }
+                    }
+                }
+            }catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Error("初始化指纹仪异常：" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// 指纹登录管理员界面
+        /// </summary>
+        private void CheckAmdin_ReadFg()
+        {
+            try
+            {
+                FgInfo tmpFgInfo = new FgInfo() { Fg_name = "左手拇指", Fg_type = 1 };
+                FlashLogger.Debug("开始执行管理员指纹比对线程");
+                int countime = 0, err_code = 0;
+                string err_msg = "";
+                APIGlobalsFuncs.SetMachineWorkingPath(FZJAPI_PATH);
+                APIGlobalsFuncs.InitDll();
+                IFZJ_APIInterface tmpIFZJ_APIInterface;
+                err_code = APIGlobalsFuncs.GetFZJ_APIObject(out tmpIFZJ_APIInterface, out err_msg);
+                if (err_code != 0)
+                {
+                    FlashLogger.Error("卡机查询初始化数据接口失败：" + err_code + " " + err_msg);
+                    return;
+                }
+                while (ComFunction.ComFunction.IsRunningFinger) {
+                    if (ComFunction.ComFunction.IsRunningFinger != true)
+                    {
+                        Thread.Sleep(1000);
+                        continue;
+                    }
+
+                    List<UnCaseSenseHashTable> adminInfoList = new List<UnCaseSenseHashTable>();
+                    bool isOk = tmpIFZJ_APIInterface.GetAllAdminMember(out adminInfoList, out err_msg);
+                    if (isOk == false)
+                    {
+                        FlashLogger.Error("后台指纹登录线程：获取管理员信息失败" + err_msg);
+                        return;
+                    }
+
+                    FingerprintData mdata = new FingerprintData();
+
+                    int r = mFingerprintReaderInterface.ReadFingerprint(tmpFgInfo.Fg_type, ref mdata);
+                    if (r != 0)
+                    {
+                        FlashLogger.Error("后台指纹登录线程：读取指纹失败：" + r.ToString());
+                        Thread.Sleep(2500);
+                    }else if (mdata.QualityScore > int.Parse(FG_RATE))
+                    {
+                        FlashLogger.Debug("比对指纹质量：" + Convert.ToString(mdata.QualityScore));
+                        countime++;
+                        if (countime > 3)
+                        {
+                            countime = 0;
+                            FlashLogger.Debug("比对管理员指纹");
+                            foreach(UnCaseSenseHashTable admininfo in adminInfoList)
+                            {
+                                if (string.IsNullOrWhiteSpace(admininfo["GLY_ZWY_ZWTZSJ"].ToString()))
+                                {
+                                    FlashLogger.Debug("管理员登录失败：没有对应管理员指纹");
+                                    return;
+                                }
+                                byte[] src_finger = Convert.FromBase64String(admininfo["GLY_ZWY_ZWTZSJ"].ToString());
+                                bool ismatch = mFingerprintReaderInterface.FeatureMatch(mdata.FgByte, src_finger, out err_msg);
+                                if (ismatch == true)
+                                {
+                                    FlashLogger.Debug("比对管理员指纹成功");
+                                    if (mIEXT_API != null)
+                                    {
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

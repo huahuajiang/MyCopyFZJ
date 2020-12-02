@@ -769,6 +769,11 @@ namespace BaseWindow
             return IsCloseProtectScreen;
         }
 
+        public int GetSystemMode()
+        {
+            return SystemMode;
+        }
+
         public void SetMarqueePosition(double left, double top)
         {
             Canvas.SetTop(this.scrollingTextControl, top);
