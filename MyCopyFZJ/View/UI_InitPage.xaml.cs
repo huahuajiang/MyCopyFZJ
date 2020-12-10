@@ -3,6 +3,7 @@ using APIFrameWork;
 using BaseWindow.Common;
 using InitControl;
 using MachineFrameWork.Classes;
+using MachineFrameWork.DistCardMachineInterface;
 using MachineFrameWork.ExtDeviceInterface;
 using MachineFrameWork.FingerprintInterface;
 using MachineFrameWork.QRCodeReaderInterface;
@@ -63,9 +64,9 @@ namespace MyCopyFZJ.View
         private string MODE_ERROR_CARD;
         private string IS_START_FG;//是否开启指纹登录，默认开启
         private string IS_START_BKCHECK;//是否启动后台清单服务
-        private string ADMINACT;
-        private string ADMINACT_NAME;
-        private string ADMINACT_SFZH;
+        private string ADMINACT;//管理员账号
+        private string ADMINACT_NAME;//管理员姓名
+        private string ADMINACT_SFZH;//管理员身份证号
         private string THEME_TYPE;
         private string UPLOAD_LOG;//存储柜异常数据上传
         private string DEV_MODEUL;//设备类型 1：发证机 2：证件柜 默认为发证机
@@ -183,6 +184,214 @@ namespace MyCopyFZJ.View
             }
         }
 
+        /// <summary>
+        /// 发证机
+        /// </summary>
+        /// <param name="err_msg"></param>
+        /// <returns></returns>
+        private bool DriverInfoHandler_FZJ(out string err_msg)
+        {
+            bool success = false;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("初始化发证机");
+                IDistCardMachine tmpIDistCardMachine;
+                GlobalsFuncs.SetMachineWorkingPath(FZJ_PATH);
+                GlobalsFuncs.InitDll();
+
+                int err_code = GlobalsFuncs.GetDistCardMachineObject(out tmpIDistCardMachine, out err_msg, true);
+                if (err_code != 0)
+                {
+                    string tmpRs = "";
+                    UnCaseSenseHashTable resultUncase = new UnCaseSenseHashTable();
+                    resultUncase["STATUS"] = Convert.ToString(err_code);
+                    tmpIDistCardMachine.CallFunExe("GetErrorMessage", resultUncase.ToString(), out tmpRs, out err_msg);
+                    UnCaseSenseHashTable tmpRsUncase = new UnCaseSenseHashTable();
+                    tmpRsUncase.LoadFromJson(tmpRs);
+                    err_msg = Convert.ToString(tmpRsUncase["MESSAGE"]);
+                    FlashLogger.Error("初始化发证机出错：" + err_code.ToString() + " " + err_msg);
+                    success = false;
+                }else
+                {
+                    FlashLogger.Debug("开始初始化InitDevice");
+                    err_code = tmpIDistCardMachine.InitDevice(0);
+                    if (err_code == 0)
+                    {
+                        FlashLogger.Debug("判断中转有无卡");
+
+                        string str_result;
+                        bool flag;
+
+                        
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                err_msg = ErrorMessage(ex);
+                FlashLogger.Debug("初始化发证机异常：" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// 数据库接口
+        /// </summary>
+        /// <param name="err_msg"></param>
+        /// <returns></returns>
+        private bool DriverInfoHandler_FZJAPI(out string err_msg)
+        {
+            bool success = false;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("初始化数据库接口");
+                APIGlobalsFuncs.SetMachineWorkingPath(FZJAPI_PATH);
+                APIGlobalsFuncs.InitDll();
+
+                IFZJ_APIInterface mIFZJ_APIInterface;
+                int err_code = APIGlobalsFuncs.GetFZJ_APIObject(out mIFZJ_APIInterface, out err_msg);
+                if (err_code != 0)
+                {
+                    FlashLogger.Error("初始化数据库接口失败" + err_msg + err_code.ToString());
+                    success = false;
+                }else
+                {
+                    DateTime tmpdate = DateTime.Now.AddDays(-int.Parse(DEL_DAYS));
+                    string yMdhms = string.Format("{0:yyyyMMddHHmmss}", tmpdate);
+                    success = mIFZJ_APIInterface.RemoveJunkData(yMdhms, out err_msg);
+                    if (success == false)
+                    {
+                        FlashLogger.Error("删除垃圾数据出错" + err_msg + err_code.ToString());
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Error("初始化数据库接口异常：" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        /// <summary>
+        /// 扫描枪
+        /// </summary>
+        /// <param name="err_msg"></param>
+        /// <returns></returns>
+        private bool DriverInfoHandler_Scanner(out string err_msg)
+        {
+            bool success = false;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("初始化扫描枪");
+                GlobalsFuncs.SetMachineWorkingPath(QRREADER_PATH);
+                GlobalsFuncs.InitDll();
+
+                int err_code = GlobalsFuncs.GetQRCodeReaderMachineObject(out QRCodeReaderInterface, out err_msg);
+                if (err_code != 0)
+                {
+                    FlashLogger.Error("初始化扫描枪失败：" + err_code.ToString() + err_msg);
+                    success = false;
+                }else
+                {
+                    QRCodeReaderInterface.ReadQR += QRCodeReaderInterface_ReadQR;
+                    success = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Error("初始化扫描枪异常：" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        private void QRCodeReaderInterface_ReadQR(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ComFunction.ComFunction.IsNeedReadQR == true)
+                {
+                    QRCodeEventArgs tmp = e as QRCodeEventArgs;
+                    this.Dispatcher.BeginInvoke((Action)delegate ()
+                    {
+                        switch (ADMIN_QR_MODE)
+                        {
+                            case "0":
+                                if (this.ParentWindow.GetSystemMode() == 0)
+                                {
+                                    this.ParentWindow.GotoAdminMode(tmp.qr_code.Replace("\r\n", ""));
+                                }
+                                break;
+
+                            case "1":
+                                if (mIEXT_API != null)
+                                {
+                                    if (this.ParentWindow.GetSystemMode() == 0)
+                                    {
+                                        UnCaseSenseHashTable tmpUncase = new UnCaseSenseHashTable();
+                                        tmpUncase["QRCODE"] = tmp.qr_code.Replace("\r\n", "");
+                                        QRCODE = tmp.qr_code.Replace("\r\n", "");
+                                        tmpUncase["MACHINE_NO"] = MACHINE_NO;
+                                        string result = "";
+                                        string err_msg = "";
+                                        bool ok = mIEXT_API.CallFunExe("AdminLoginInfo", tmpUncase.ToJsonString(), out result, out err_msg);
+                                        // 检查返回结果
+                                        if (string.IsNullOrWhiteSpace(result))
+                                        {
+                                            FlashLogger.Debug("管理员登陆失败" + err_msg);
+                                            return;
+                                        }
+                                        UnCaseSenseHashTable tmpresult = new UnCaseSenseHashTable();
+                                        tmpresult.LoadFromJson(result);
+                                        if (ok == true)
+                                        {
+                                            ComFunction.ComFunction.Speak("管理员登陆成功");
+                                            Thread.Sleep(2000);
+                                            this.ParentWindow.GotoAdminMode();
+                                            ComFunction.ComFunction.OutPutParameterCard_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "QRCODE", QRCODE);
+                                            ComFunction.ComFunction.OutPutParameterAdmin_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "ADMINACT", Convert.ToString(tmpresult["ADMINACT"]));
+                                            ComFunction.ComFunction.OutPutParameterAdmin_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "ADMINACT_NAME", Convert.ToString(tmpresult["ADMINNAME"]));
+
+                                            FlashLogger.Debug("管理员登陆成功:账号" + Convert.ToString(tmpresult["ADMINACT"]) + "姓名:" + Convert.ToString(tmpresult["ADMINNAME"]));
+                                        }
+                                        else
+                                        {
+                                            FlashLogger.Debug("管理员登陆失败" + err_msg);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //屏保是否已打开
+                                        if (this.ParentWindow.GetProtectScreenStatus() == true)
+                                        {
+                                            this.ParentWindow.CloseProtectScreen();
+                                        }
+                                    }
+                                }
+                                break;
+                            case "2":
+                                break;
+                        }
+                    });
+                }
+            }catch(Exception ex)
+            {
+                FlashLogger.Error("管理员登陆异常" + ComFun.ErrorMessage(ex));
+            }
+        }
+
+        /// <summary>
+        /// 指纹仪
+        /// </summary>
+        /// <param name="err_msg"></param>
+        /// <returns></returns>
         private bool DriverInfoHandler_Fgprint(out string err_msg)
         {
             bool success = false;
@@ -296,13 +505,64 @@ namespace MyCopyFZJ.View
                                     FlashLogger.Debug("比对管理员指纹成功");
                                     if (mIEXT_API != null)
                                     {
-
+                                        if (this.ParentWindow.GetSystemMode() == 0)
+                                        {
+                                            UnCaseSenseHashTable tmpUncase = new UnCaseSenseHashTable();
+                                            tmpUncase["sfzhm"] = admininfo["GMSFHM"].ToString();
+                                            tmpUncase["finger"] = admininfo["GLY_ZWY_ZWTZSJ"].ToString();
+                                            tmpUncase["MACHINE_NO"] = MACHINE_NO;
+                                            string result = "";
+                                            string err = "";
+                                            bool ok = mIEXT_API.CallFunExe("AdminLoginInfo", tmpUncase.ToJsonString(), out result, out err);
+                                            //检查返回结果
+                                            if (string.IsNullOrWhiteSpace(result))
+                                            {
+                                                FlashLogger.Debug("管理员登陆失败" + err);
+                                            }
+                                            else
+                                            {
+                                                UnCaseSenseHashTable tmpresult = new UnCaseSenseHashTable();
+                                                tmpresult.LoadFromJson(result);
+                                                if (ok == true)
+                                                {
+                                                    ComFunction.ComFunction.Speak("管理员登录成功");
+                                                    Thread.Sleep(1000);
+                                                    ADMINACT = Convert.ToString(tmpresult["ADMINACT"]);
+                                                    ADMINACT_NAME = Convert.ToString(tmpresult["ADMINNAME"]);
+                                                    ADMINACT_SFZH = Convert.ToString(admininfo["GMSFHM"]);
+                                                    FlashLogger.Debug("管理员登陆成功：账号" + Convert.ToString(tmpresult["ADMINACT"]) + "姓名：" + Convert.ToString(tmpresult["ADMINNAME"]));
+                                                    this.Dispatcher.BeginInvoke((Action)delegate ()
+                                                    {
+                                                        this.ParentWindow.GotoAdminMode();
+                                                        ComFunction.ComFunction.OutPutParameterCard_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "QRCODE", QRCODE);
+                                                        ComFunction.ComFunction.OutPutParameterAdmin_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "ADMINACT", Convert.ToString(tmpresult["ADMINACT"]));
+                                                        ComFunction.ComFunction.OutPutParameterAdmin_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "ADMINACT_NAME", Convert.ToString(tmpresult["ADMINNAME"]));
+                                                        ComFunction.ComFunction.OutPutParameterAdmin_Info(this.ParentWindow.UiConfig.GetGlobalVar(), "ADMINACT_SFZH", Convert.ToString(admininfo["GMSFHM"]));
+                                                    });
+                                                }
+                                                else
+                                                {
+                                                    FlashLogger.Debug("管理员登陆失败" + err);
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (this.ParentWindow.GetProtectScreenStatus() == true)
+                                            {
+                                                this.ParentWindow.CloseProtectScreen();
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    Thread.Sleep(300);
                 }
+            }catch(Exception ex)
+            {
+                FlashLogger.Debug("指纹比对线程异常：" + ex.ToString());
             }
         }
 
@@ -398,6 +658,29 @@ namespace MyCopyFZJ.View
             {
                 FlashLogger.Debug("退出程序前清除垃圾线程异常", ex);
             }
+        }
+
+        private string ErrorMessage(Exception exception)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("====================EXCEPTION====================");
+            stringBuilder.AppendLine("【Message】:" + exception.Message);
+            stringBuilder.AppendLine("【Source】:" + exception.Source);
+            stringBuilder.AppendLine("【TargetSite】:" + ((exception.TargetSite != null) ? exception.TargetSite.Name : "无"));
+            stringBuilder.AppendLine("【StackTrace】:" + exception.StackTrace);
+            stringBuilder.AppendLine("【exception】:" + exception);
+            stringBuilder.AppendLine("=================================================");
+            if (exception.InnerException != null)
+            {
+                stringBuilder.AppendLine("====================INNER EXCEPTION====================");
+                stringBuilder.AppendLine("【Message】:" + exception.InnerException.Message);
+                stringBuilder.AppendLine("【Source】:" + exception.InnerException.Source);
+                stringBuilder.AppendLine("【TargetSite】:" + ((exception.InnerException.TargetSite != null) ? exception.InnerException.TargetSite.Name : "无"));
+                stringBuilder.AppendLine("【StackTrace】:" + exception.InnerException.StackTrace);
+                stringBuilder.AppendLine(("【InnerException】:" + exception.InnerException) ?? "");
+                stringBuilder.AppendLine("=================================================");
+            }
+            return stringBuilder.ToString().Replace("/r", "").Replace("/n", "");
         }
     }
 }

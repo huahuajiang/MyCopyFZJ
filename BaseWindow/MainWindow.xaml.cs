@@ -290,6 +290,24 @@ namespace BaseWindow
 
         }
 
+        public void GotoAdminMode(string Admin_Pwd)
+        {
+            try
+            {
+                if (UiConfig.GetGlobalVar().HasKeyValue("ADMIN_PWD"))
+                {
+                    if (Admin_Pwd == Convert.ToString(UiConfig.GetGlobalVar()["ADMIN_PWD"]))
+                    {
+                        InitWindow(1);
+                        JumpPage("Home");
+                    }
+                }
+            }catch(Exception ex)
+            {
+                FlashLogger.Error(ComFun.ErrorMessage(ex));
+            }
+        }
+
 
         /// <summary>
         /// 确认按钮
@@ -440,6 +458,12 @@ namespace BaseWindow
                 FlashLogger.Error(ComFun.ErrorMessage(ex));
                 MessageBox.Show("系统页面跳转出错：" + ex.Message);
             }
+        }
+
+        public void GotoAdminMode()
+        {
+            InitWindow(1);
+            JumpPage("Home");
         }
 
         private void InitWindow(int type)
