@@ -6,12 +6,14 @@ using MachineFrameWork.Classes;
 using MachineFrameWork.DistCardMachineInterface;
 using MachineFrameWork.ExtDeviceInterface;
 using MachineFrameWork.FingerprintInterface;
+using MachineFrameWork.ICReaderInterface;
 using MachineFrameWork.QRCodeReaderInterface;
 using MisFrameWork.core;
 using MyCopyFZJ.ComFunction;
 using OpsCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -182,6 +184,256 @@ namespace MyCopyFZJ.View
             {
                 FlashLogger.Error("初始化加载线程异常", ex);
             }
+        }
+
+        private bool DriverInfoHandler_WebSocket(out string err_msg)
+        {
+            bool success;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("初始化WebSocket");
+                GlobalsFuncs.SetMachineWorkingPath(AppDomain.CurrentDomain.BaseDirectory);
+                success=
+            }catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Debug("初始化WebSocket异常：" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        private bool JunkFilesHandler_Delete(out string err_msg)
+        {
+            bool success = false;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("清理本地垃圾文件");
+                string argpath = AppDomain.CurrentDomain.BaseDirectory + "Args";
+                DateTime Curr_time = DateTime.Now;
+                if (Directory.Exists(argpath))
+                {
+                    foreach(string content in Directory.GetDirectories(argpath))
+                    {
+                        DirectoryInfo dir = new System.IO.DirectoryInfo(content);
+                        DateTime DT = dir.CreationTime;
+                        TimeSpan interval = Curr_time - DT;
+
+                        if (interval.TotalDays > double.Parse(DEL_DAYS))
+                        {
+                            Directory.Delete(content, true);
+                        }
+                    }
+                }
+
+                argpath = AppDomain.CurrentDomain.BaseDirectory + "ReadCardLog";
+                if (Directory.Exists(argpath))
+                {
+                    foreach(string content in Directory.GetDirectories(argpath))
+                    {
+                        if (Directory.Exists(content))
+                        {
+                            DirectoryInfo dir = new DirectoryInfo(content);
+                            DateTime DT = dir.CreationTime;
+                            TimeSpan interval = Curr_time - DT;
+
+                            if (interval.TotalDays > double.Parse(DEL_DAYS))
+                            {
+                                Directory.Delete(content, true);
+                            }
+                        }else if (File.Exists(content))
+                        {
+                            FileInfo fi = new FileInfo(content);
+                            TimeSpan interval = Curr_time - fi.CreationTime;
+
+                            if (interval.TotalDays > double.Parse(DEL_DAYS))
+                            {
+                                File.Delete(content);
+                            }
+                        }
+                    }
+                }
+                success = true;
+                err_msg = "清除完毕";
+            }catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Debug("清理本地垃圾文件异常：" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        private bool DriverInfoHandler_FZJEXTAPI(out string err_msg)
+        {
+            bool success = false;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("初始化第三方接口");
+                APIGlobalsFuncs.SetMachineWorkingPath(FZJAPI_PATH);
+                APIGlobalsFuncs.InitDll();
+
+                int err_code = APIGlobalsFuncs.GetFZJ_EXTAPIObject(out mIEXT_API, out err_msg);
+                if (err_code != 0)
+                {
+                    FlashLogger.Error("初始化第三方接口失败" + err_msg + err_code.ToString());
+                    success = false;
+                }else
+                {
+                    if (UPLOAD_LOG == "1")
+                    {
+                        if (FlashLogger.GetOtherMsgHandler() == null)
+                        {
+                            FlashLogger.SetOtherMsgHandler(new FlashLogger.OtherMsgHandler(OtherThreadMsgFunHandler));
+                        }
+                    }
+
+                    success = true;
+                    if (IS_START_BKCHECK == "1")
+                    {
+                        int count = 0;
+                        while (count < 3 && ComFunction.ComFunction.IsRunningCheck == true)
+                        {
+                            Thread.Sleep(2000);
+                            count++;
+                        }
+                        if (ComFunction.ComFunction.IsRunningCheck == true)
+                        {
+                            FlashLogger.Error("后台清点线程无法终止");
+                            success = false;
+                        }else
+                        {
+                            ComFunction.ComFunction.BackWorkerCheck = new Thread(BackWorkerCheckFun);
+                            ComFunction.ComFunction.BackWorkerCheck.IsBackground = true;
+                            ComFunction.ComFunction.BackWorkerCheck.Start();
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Error("初始化第三方接口异常:" + ex.Message);
+                success = false;
+            }
+            return success;
+        }
+
+        private void BackWorkerCheckFun()
+        {
+            try
+            {
+                FlashLogger.Debug("开启后台清点线程");
+                while (!ComFunction.ComFunction.IsRunningCheck)
+                {
+                    if (ComFunction.ComFunction.IsNeedCheck == false)
+                    {
+                        Thread.Sleep(1000);
+                        continue;
+                    }
+
+                    string isrun = "1";
+                    //调用第三方清点接口
+                    Thread.Sleep(10000);
+                    UnCaseSenseHashTable caseFromServer = new UnCaseSenseHashTable();
+                    UnCaseSenseHashTable argForCheckStore = new UnCaseSenseHashTable();
+                    string resCase = "";
+                    string err_msg = "";
+                    argForCheckStore["ADMINACT"] = ADMINACT;
+                    argForCheckStore["MACHINE_NO"] = MACHINE_NO;
+                    bool isok = mIEXT_API.CallFunExe("GetCheckStoreInfo", argForCheckStore.ToJsonString(), out resCase, out err_msg);
+                    if (isok == false)
+                    {
+                        Thread.Sleep(3000);
+                        continue;
+                    }
+                    if (isrun == "1")
+                    {
+                        FlashLogger.Debug("后台发送清点状态");
+                        ComFunction.ComFunction.IsNeedCheck = false;
+                        this.Dispatcher.BeginInvoke((Action)delegate ()
+                        {
+                            this.ParentWindow.GotoAdminMode();
+                            ComFun.OutPutParameterComFunWithKey(this.ParentWindow.UiConfig.GetGlobalVar(), "RUNBACKCHECK", "1");
+                            this.ParentWindow.OpenProtectScreen(0);
+                            ComFun.OutPutParameterComFunWithKey(this.ParentWindow.UiConfig.GetGlobalVar(), "BUSTYPEBIN", "3");
+                            this.ParentWindow.JumpPage("Next");
+                        });
+                    }
+                    else
+                    {
+                        FlashLogger.Debug("接口返回状态不对");
+                    }
+                    Thread.Sleep(1000);
+                }
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Debug("后台清点状态检测线程异常", ex);
+            }
+            return;
+        }
+
+        private void OtherThreadMsgFunHandler(int type, string msg)
+        {
+            try
+            {
+                string result = "";
+                string err_msg = "";
+                UnCaseSenseHashTable ErrMess = new UnCaseSenseHashTable();
+                ErrMess["NOTICETYPE"] = "1";
+                ErrMess["MESSAGE"] = msg;
+                ErrMess["MACHINE_NO"] = MACHINE_NO;
+                ErrMess["DATA"] = "";
+
+                switch (type)
+                {
+                    case 2://错误信息上传
+                        if (mIEXT_API != null)
+                        {
+                            mIEXT_API.CallFunExe("LogRecordToOrigin", ErrMess.ToJsonString(), out result, out err_msg);
+                        }
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                FlashLogger.Error("异常信息上传接口异常" + ex);
+            }
+        }
+
+        private bool DriverInfoHandler_FZJREADER(out string err_msg)
+        {
+            bool success = false;
+            err_msg = "";
+            try
+            {
+                FlashLogger.Debug("初始化发证机读卡器");
+                GlobalsFuncs.SetMachineWorkingPath(FZJREADER_PATH);
+                GlobalsFuncs.InitDll();
+
+                IICReader mIICReader;
+
+                int err_code = GlobalsFuncs.GetICReaderObject(out mIICReader, out err_msg);
+                if (err_code != 0)
+                {
+                    FlashLogger.Error("初始化发证机读卡器出错:" + err_msg.ToString());
+                    success = false;
+                }else
+                {
+                    success = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                err_msg = ex.Message;
+                FlashLogger.Error("初始化发证机读卡器异常:" + ex.Message);
+                success = false;
+            }
+            return success;
         }
 
         /// <summary>

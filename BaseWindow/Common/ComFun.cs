@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MisFrameWork.core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,22 @@ namespace BaseWindow.Common
                 stringBuilder.AppendLine("=================================================");
             }
             return stringBuilder.ToString().Replace("/r", "").Replace("/n", "");
+        }
+
+        public static bool OutPutParameterComFunWithKey(UnCaseSenseHashTable AllDate,string Key,string PageParameter)
+        {
+            if (PageParameter == null)
+            {
+                return false;
+            }
+            if (AllDate.HasKeyValue(Key))
+            {
+                AllDate[Key] = PageParameter;
+            }else
+            {
+                AllDate.Add(Key, PageParameter);
+            }
+            return true;
         }
     }
 }

@@ -76,6 +76,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BaseWindow\Lib\OpsCore.dll</HintPath>
     </Reference>
+    <Reference Include="SuperSocket.Common">
+      <HintPath>Lib\SuperSocket.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase">
+      <HintPath>Lib\SuperSocket.SocketBase.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine">
+      <HintPath>Lib\SuperSocket.SocketEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperWebSocket">
+      <HintPath>Lib\SuperWebSocket.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
@@ -101,6 +113,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApiWebSocket\MainWebSocket.cs" />
     <Compile Include="ComFunction\ComFunction.cs" />
     <Compile Include="ComFunction\WorkQueue.cs" />
     <Compile Include="View\UI_InitPage.xaml.cs">
